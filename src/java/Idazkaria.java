@@ -34,8 +34,9 @@ public class Idazkaria {
         return erantzuna;
     }
     
-    public void txandakEsleitu(){
-        
+    public void txandakEsleitu(String pOrdua, String pGSZ){
+        //String medikuID = DB.gaisoarenMedikua(pGSZ);
+        //DB.txandaGorde(pOrdua, medikuID, pGSZ);
     }
     
     public void bajaPaperaBerritu(int pGaixoGSZ){
@@ -56,8 +57,9 @@ public class Idazkaria {
         return (int) egun;
     }
     
-    public void gaixoDatuakIkusi(int pGaixoGSZ){
-        //DB.datuakErakusti();
+    public ArrayList<String> gaixoDatuakIkusi(int pGaixoGSZ){
+        //return DB.datuakErakusti();
+        return null;
     }
     
     public void gaixoIzenaAldatu(int pGaixoGSZ, String pIzBerria){
