@@ -1,3 +1,5 @@
+package Anbulategi;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,13 +20,13 @@ class Historial {
     private int gGSZ;
     private int hZenbakia;
 
-    public Historial(String pIz, String pAb1, String pAb2, int pTelf, String pHelb, int pGSZ) {
+    public Historial(String pIz, String pAb1, String pAb2, int pTelf, String pHelb, int pGSZ, int pHzenb) {
         gIzena = pIz;
         gAbizena1 = pAb1;
         gAbizena2 = pAb2;
         gTelefono = pTelf;
         gHelbide = pHelb;
         gGSZ = pGSZ;
-        //hZenbakia = DB.bilatuAzkenHistoialZbk();
+        hZenbakia = pHzenb;
     }
 }

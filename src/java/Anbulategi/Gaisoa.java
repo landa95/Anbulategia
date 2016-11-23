@@ -1,4 +1,9 @@
-private String izena;
+package Anbulategi;
+
+import java.util.ArrayList;
+
+public class Gaisoa {
+    private String izena;
     private String abizena1;
     private String abizena2;
     private int adina;
