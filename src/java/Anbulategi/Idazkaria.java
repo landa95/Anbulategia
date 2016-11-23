@@ -19,19 +19,19 @@ public class Idazkaria {
     
     public void historialBerria(String pIzena, String pAbizena1, String pAbizena2,int pAdina, int pTelf, String pHelb, int pGSZ){    
         int i = DB.getNDB().azkenHistorialZenbakia() + 1;
-        Historial his = new Historial(pIzena,pAbizena1,pAbizena2,pTelf,pHelb,pGSZ, i);
+        Historial his = new Historial(pIzena,pAbizena1,pAbizena2, pAdina, pTelf,pHelb,pGSZ, i);
         Gaisoa ga = new Gaisoa(pIzena, pAbizena1, pAbizena2, pAdina, pTelf, pHelb, pGSZ);
         DB.getNDB().gaisoBerria(ga);
         DB.getNDB().historialaGorde(his);
     }
     
-    public ArrayList<String> orduLibreakErakutsi(Date pEguna){
-        ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna);
+    public ArrayList<String> orduLibreakErakutsi(Date pEguna,int pMedikuID){
+        ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna, pMedikuID);
         return orduak;
     }
     
     public void txandakEsleitu(String pOrdua, String pGSZ){
-        String medikuID = DB.getNDB().gaisoarenMedikua(pGSZ);
+        int medikuID = DB.getNDB().gaisoarenMedikua(pGSZ);
         DB.getNDB().txandaGorde(pOrdua, medikuID, pGSZ);
     }
     

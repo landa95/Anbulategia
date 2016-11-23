@@ -35,15 +35,15 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    ArrayList<String> egunekoOrduLibreak(Date pEguna) {
+    ArrayList<String> egunekoOrduLibreak(Date pEguna, int pMedikuID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    String gaisoarenMedikua(String pGSZ) {
+    int gaisoarenMedikua(String pGSZ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void txandaGorde(String pOrdua, String medikuID, String pGSZ) {
+    void txandaGorde(String pOrdua, int medikuID, String pGSZ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -55,7 +55,7 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void eguneratuGaixoa(int pGaixoGSZ, String izena, String pIzBerria) {
+    void eguneratuGaixoa(int pGaixoGSZ, String aldaketa, String pIzBerria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -15,15 +15,17 @@ class Historial {
     private String gIzena;
     private String gAbizena1;
     private String gAbizena2;
+    private int gAdina;
     private int gTelefono;
     private String gHelbide;
     private int gGSZ;
     private int hZenbakia;
 
-    public Historial(String pIz, String pAb1, String pAb2, int pTelf, String pHelb, int pGSZ, int pHzenb) {
+    public Historial(String pIz, String pAb1, String pAb2, int pAdin, int pTelf, String pHelb, int pGSZ, int pHzenb) {
         gIzena = pIz;
         gAbizena1 = pAb1;
         gAbizena2 = pAb2;
+        gAdina = pAdin;
         gTelefono = pTelf;
         gHelbide = pHelb;
         gGSZ = pGSZ;
