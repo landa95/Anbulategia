@@ -74,5 +74,9 @@ public class DB {
     Historial historialaBilatu(int pGSZ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    void historialalEguneratu(Historial his) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

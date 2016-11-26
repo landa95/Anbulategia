@@ -24,7 +24,9 @@ class Sendagilea {
         return DB.getNDB().historialaBilatu(pGSZ);
     }
     
-    public void historialaEguneratu(int pGSZ){
+    public void historialaEguneratu(int pGSZ, String pEguneraketa){
         Historial his = DB.getNDB().historialaBilatu(pGSZ);
+        his.eguneratu(pEguneraketa);
+        DB.getNDB().historialalEguneratu(his);
     }
 }
