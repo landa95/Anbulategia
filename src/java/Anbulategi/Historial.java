@@ -35,6 +35,10 @@ class Historial {
     void eguneratu(String pEguneraketa) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    void eguneratuHorriBrezia(String pEguneraketa, String espezialitatea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
