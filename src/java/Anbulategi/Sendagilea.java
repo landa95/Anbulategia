@@ -29,4 +29,8 @@ class Sendagilea {
         his.eguneratu(pEguneraketa);
         DB.getNDB().historialalEguneratu(his);
     }
+    
+    public int getNAN(){
+        return NAN;
+    }
 }

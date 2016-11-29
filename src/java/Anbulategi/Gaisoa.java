@@ -11,15 +11,15 @@ public class Gaisoa {
     private String bizilekua;
     private int GSZ;
     private boolean pentsioduna = false;
-    //private bajaZerrenda bajaZerrenda;
+    private int medikua;
+    //private bajaTxostena baja;
     //private Historiala historiala
     //private Txostena txostena;
     //private ArrayList<Errezeta> errezetak = new ArrayList<Errezeta>();
     //private Sendagilea sendagilea;
     
    
-    public Gaisoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ){
- 
+    public Gaisoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ, int medikuNAN){
         this.izena = izena;
         this.abizena1 = abizena1;
         this.abizena2 = abizena2;
@@ -30,7 +30,7 @@ public class Gaisoa {
         this.telefonoa = telefonoa;
         this.bizilekua = bizilekua;
         this.GSZ = GSZ;
-       
+        this.medikua = medikuNAN;
     }
     
     //GETTER
@@ -118,8 +118,5 @@ public class Gaisoa {
     
     public void kontsultaEskatu(){
     
-    }
-    
-    
-
+    } 
 }

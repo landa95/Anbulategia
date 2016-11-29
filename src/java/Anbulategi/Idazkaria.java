@@ -19,8 +19,9 @@ public class Idazkaria {
     
     public void historialBerria(String pIzena, String pAbizena1, String pAbizena2,int pAdina, int pTelf, String pHelb, int pGSZ){    
         int i = DB.getNDB().azkenHistorialZenbakia() + 1;
-        Historial his = new Historial(pIzena,pAbizena1,pAbizena2, pAdina, pTelf,pHelb,pGSZ, i);
-        Gaisoa ga = new Gaisoa(pIzena, pAbizena1, pAbizena2, pAdina, pTelf, pHelb, pGSZ);
+        Sendagilea sen = DB.getNDB().gaisoGutxienDituenMedikua();
+        Historial his = new Historial(pGSZ, i);
+        Gaisoa ga = new Gaisoa(pIzena, pAbizena1, pAbizena2, pAdina, pTelf, pHelb, pGSZ, sen.getNAN());
         DB.getNDB().gaisoBerria(ga);
         DB.getNDB().historialaGorde(his);
     }
