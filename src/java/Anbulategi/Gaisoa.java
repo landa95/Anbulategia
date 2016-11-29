@@ -13,9 +13,8 @@ public class Gaisoa {
     private boolean pentsioduna = false;
     private int medikua;
     //private bajaTxostena baja;
-    //private Historiala historiala
     //private Txostena txostena;
-    //private ArrayList<Errezeta> errezetak = new ArrayList<Errezeta>();
+    //private ErrezetaZerrenda errezetak = new ErrezetaZerrenda();
     //private Sendagilea sendagilea;
     
    

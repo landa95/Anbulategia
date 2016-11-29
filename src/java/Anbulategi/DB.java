@@ -82,5 +82,9 @@ public class DB {
     Sendagilea gaisoGutxienDituenMedikua() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    void bajaBerritu(int pGaixoGSZ, Date bajaEgunBerria) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

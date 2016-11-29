@@ -1,6 +1,9 @@
 package Anbulategi;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /*
@@ -37,21 +40,31 @@ public class Idazkaria {
     }
     
     public void bajaPaperaBerritu(int pGaixoGSZ){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date bajaAzkenEguna = DB.bajaAzkenEguna(pGaixoGSZ);
-        //DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date bajaEgunBerria = new Date();
-        if (bajaEgunBerria.compareTo(bajaAzkenEguna) <= 0) {
-            DB.getNDB().bajaBerritu(pGaixoGSZ, 7);
+        int egunak = datenArtekoDiferentzia(bajaAzkenEguna,bajaEgunBerria);
+        if(egunak >= 7){
+            Calendar cal = Calendar.getInstance(); 
+            cal.setTime(bajaAzkenEguna); 
+            cal.add(Calendar.DATE, 7);
+            bajaEgunBerria = cal.getTime();
+            DB.getNDB().bajaBerritu(pGaixoGSZ, bajaEgunBerria);
         }
-        else{
-            DB.getNDB().bajaBerritu(pGaixoGSZ, datenArtekoDiferentzia(bajaAzkenEguna,bajaEgunBerria));
+        else if(egunak > 0){ //eguna beti izango da 0 edo handiagoa
+            Calendar cal = Calendar.getInstance(); 
+            cal.setTime(bajaAzkenEguna); 
+            cal.add(Calendar.DATE, egunak);
+            bajaEgunBerria = cal.getTime();
+            DB.getNDB().bajaBerritu(pGaixoGSZ, bajaEgunBerria);
         }
+        
     }
     
     private int datenArtekoDiferentzia(Date pAzkena, Date pBerria){
-        long dif = pBerria.getTime() - pAzkena.getTime();
+        long dif = pAzkena.getTime() - pBerria.getTime();
         long egun = dif / (1000 * 60 * 60 * 24);
-        return (int) egun;
+        return (int)egun;
     }
     
     public ArrayList<String> gaixoDatuakIkusi(int pGaixoGSZ){
