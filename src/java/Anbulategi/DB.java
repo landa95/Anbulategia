@@ -27,7 +27,7 @@ public class DB {
         return ndb;
     }
 
-    void gaisoBerria(Gaisoa ga) {
+    void gaisoBerria(Gaixoa ga) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -36,10 +36,6 @@ public class DB {
     }
 
     ArrayList<String> egunekoOrduLibreak(Date pEguna, int pMedikuID) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    int gaisoarenMedikua(String pGSZ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -79,7 +75,7 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    int gaisoGutxienDituenMedikua() {
+    int gaixoGutxienDituenMedikua() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -95,8 +91,16 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    TxandaZerrenda gaisoarenTxandak(Date date, int GSZ) {
+    TxandaZerrenda gaixoarenTxandak(Date date, int GSZ) {
         //Data honetatik aurrerako txandak bakarrik eskatuko dira
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    boolean gaixoaDago(Gaixoa ga) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    int gaixoarenMedikua(int pGSZ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

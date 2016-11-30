@@ -23,20 +23,22 @@ public class Idazkaria {
     //Methods
     public void historialBerria(String pIzena, String pAbizena1, String pAbizena2,int pAdina, int pTelf, String pHelb, int pGSZ){    
         int i = DB.getNDB().azkenHistorialZenbakia() + 1;
-        int mediku = DB.getNDB().gaisoGutxienDituenMedikua();
-        Historial his = new Historial(pGSZ, i);
-        Gaisoa ga = new Gaisoa(pIzena, pAbizena1, pAbizena2, pAdina, pTelf, pHelb, pGSZ, mediku);
+        Gaixoa ga = new Gaixoa(pIzena, pAbizena1, pAbizena2, pAdina, pTelf, pHelb, pGSZ);
+        int mediku = DB.getNDB().gaixoGutxienDituenMedikua();
+        ga.setMedikua(mediku);
         DB.getNDB().gaisoBerria(ga);
+        Historial his = new Historial(pGSZ, i);
         DB.getNDB().historialaGorde(his);
     }
     
-    public ArrayList<String> orduLibreakErakutsi(Date pEguna,int pMedikuID){
-        ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna, pMedikuID);
+    public ArrayList<String> orduLibreakErakutsi(Date pEguna,int pGSZ){
+        int medikuID = DB.getNDB().gaixoGutxienDituenMedikua();
+        ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna, medikuID);
         return orduak;
     }
     
-    public void txandakEsleitu(String pOrdua, String pGSZ){
-        int medikuID = DB.getNDB().gaisoarenMedikua(pGSZ);
+    public void txandakEsleitu(String pOrdua, int pGSZ){
+        int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
         Txanda txanda = new Txanda(pOrdua, medikuID, pGSZ);
         DB.getNDB().txandaGorde(txanda);
     }

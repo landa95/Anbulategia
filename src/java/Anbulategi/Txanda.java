@@ -13,10 +13,10 @@ public class Txanda {
     //AT
     private String ordua;
     private int medikua;
-    private String gaisoa;
+    private int gaisoa;
     
     //Constructor
-    public Txanda(String pOrdua, int medikuID, String pGSZ) {
+    public Txanda(String pOrdua, int medikuID, int pGSZ) {
         ordua=pOrdua;
         medikua=medikuID;
         gaisoa=pGSZ;

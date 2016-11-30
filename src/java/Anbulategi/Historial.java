@@ -38,5 +38,9 @@ class Historial {
         hBereziak.eguneratuHorria(pEguneraketa, pEspezialitatea);
     }
     
+    public boolean nireGSZda(int pGSZ){
+        if (gGSZ == pGSZ) return true;
+        else return false;
+    }
     
 }

@@ -3,7 +3,8 @@ package Anbulategi;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Gaisoa {
+public class Gaixoa {
+    //AT
     private String izena;
     private String abizena1;
     private String abizena2;
@@ -15,8 +16,8 @@ public class Gaisoa {
     private int medikua;
     //private Txostena txostena;
     
-   
-    public Gaisoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ, int medikuNAN){
+    //Cosntructor
+    public Gaixoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ){
         this.izena = izena;
         this.abizena1 = abizena1;
         this.abizena2 = abizena2;
@@ -27,7 +28,6 @@ public class Gaisoa {
         this.telefonoa = telefonoa;
         this.bizilekua = bizilekua;
         this.GSZ = GSZ;
-        this.medikua = medikuNAN;
     }
     
     //GETTER
@@ -78,7 +78,10 @@ public class Gaisoa {
         return pentsioduna;
     }
     
-
+     public int setMedikua(){
+        return this.medikua;
+    }
+    
     //SETTER
     public void setIzena(String izena){
         this.izena = izena;
@@ -108,14 +111,16 @@ public class Gaisoa {
         this.GSZ = txartelzenb;
     }
 
-
+    public void setMedikua(int medikuNAN){
+        this.medikua = medikuNAN;
+    }
     //METODOAK
     public void kontsultaEskatu(){
     
     }
     
-    public TxandaZerrenda gaisoarenTxandak(){
+    public TxandaZerrenda gaixoarenTxandak(){
         //gaurtik aurrerakoak bakarrim eskatuko dira
-        return DB.getNDB().gaisoarenTxandak(new Date(), GSZ);
+        return DB.getNDB().gaixoarenTxandak(new Date(), GSZ);
     }
 }
