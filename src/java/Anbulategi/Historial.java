@@ -1,5 +1,9 @@
 package Anbulategi;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,18 +18,24 @@ class Historial {
      //AT
     private int gGSZ;
     private int hZenbakia;
+    private String historia;
+    private HorriBereziList hBereziak;
 
     public Historial(int pGSZ, int pHzenb) {
         gGSZ = pGSZ;
         hZenbakia = pHzenb;
+        historia="";
+        hBereziak=new HorriBereziList();
     }
 
-    void eguneratu(String pEguneraketa) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eguneratu(String pEguneraketa) {
+       DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+       Date date = new Date();
+       historia+=dateFormat.format(date)+":\n"+pEguneraketa+"\n\n";   
     }
 
-    void eguneratuHorriBrezia(String pEguneraketa, String espezialitatea) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eguneratuHorriBrezia(String pEguneraketa, String pEspezialitatea) {
+        hBereziak.eguneratuHorria(pEguneraketa, pEspezialitatea);
     }
     
     

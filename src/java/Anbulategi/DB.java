@@ -43,7 +43,7 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void txandaGorde(String pOrdua, int medikuID, String pGSZ) {
+    void txandaGorde(Txanda txanda) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -79,12 +79,24 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    Sendagilea gaisoGutxienDituenMedikua() {
+    int gaisoGutxienDituenMedikua() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     void bajaBerritu(int pGaixoGSZ, Date bajaEgunBerria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    void errezetaGehitu(Errezeta errezeta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    TxandaZerrenda sendagilearenEgunekoTxandak(Date date, int NAN) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    TxandaZerrenda gaisoarenTxandak(Date date, int GSZ) {
+        //Data honetatik aurrerako txandak bakarrik eskatuko dira
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

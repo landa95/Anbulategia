@@ -3,6 +3,7 @@ package Anbulategi;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -36,10 +37,6 @@ class Sendagilea {
         DB.getNDB().historialalEguneratu(his);
     }
     
-    public int getNAN(){
-        return NAN;
-    }
-    
     public void bajaEman(int pGSZ, int pBajaEgunak){
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	Date dBaja = new Date();
@@ -48,5 +45,16 @@ class Sendagilea {
         cal.add(Calendar.DATE, pBajaEgunak);
         Date dAlta = cal.getTime();
         bajaTxostena txostena = new bajaTxostena(dBaja, dAlta);
+    }
+    
+    public Errezeta errezetaSortu(String pBotika, int pIraupena,String pAginduak){
+        Errezeta errezeta= new Errezeta(pBotika, pIraupena, NAN);
+        errezeta.setAginduak(pAginduak);
+        DB.getNDB().errezetaGehitu(errezeta);
+        return errezeta; //gaisoak behar badu errezeta izan dezan
+    }
+    
+    public TxandaZerrenda egunekoTxandak(){
+        return DB.getNDB().sendagilearenEgunekoTxandak(new Date(),NAN);
     }
 }

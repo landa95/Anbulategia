@@ -17,14 +17,15 @@ import java.util.Date;
  * @author Oier
  */
 public class Idazkaria {
-    
+    //Constructor
     public Idazkaria(){};
     
+    //Methods
     public void historialBerria(String pIzena, String pAbizena1, String pAbizena2,int pAdina, int pTelf, String pHelb, int pGSZ){    
         int i = DB.getNDB().azkenHistorialZenbakia() + 1;
-        Sendagilea sen = DB.getNDB().gaisoGutxienDituenMedikua();
+        int mediku = DB.getNDB().gaisoGutxienDituenMedikua();
         Historial his = new Historial(pGSZ, i);
-        Gaisoa ga = new Gaisoa(pIzena, pAbizena1, pAbizena2, pAdina, pTelf, pHelb, pGSZ, sen.getNAN());
+        Gaisoa ga = new Gaisoa(pIzena, pAbizena1, pAbizena2, pAdina, pTelf, pHelb, pGSZ, mediku);
         DB.getNDB().gaisoBerria(ga);
         DB.getNDB().historialaGorde(his);
     }
@@ -36,7 +37,8 @@ public class Idazkaria {
     
     public void txandakEsleitu(String pOrdua, String pGSZ){
         int medikuID = DB.getNDB().gaisoarenMedikua(pGSZ);
-        DB.getNDB().txandaGorde(pOrdua, medikuID, pGSZ);
+        Txanda txanda = new Txanda(pOrdua, medikuID, pGSZ);
+        DB.getNDB().txandaGorde(txanda);
     }
     
     public void bajaPaperaBerritu(int pGaixoGSZ){
@@ -57,8 +59,7 @@ public class Idazkaria {
             cal.add(Calendar.DATE, egunak);
             bajaEgunBerria = cal.getTime();
             DB.getNDB().bajaBerritu(pGaixoGSZ, bajaEgunBerria);
-        }
-        
+        } 
     }
     
     private int datenArtekoDiferentzia(Date pAzkena, Date pBerria){

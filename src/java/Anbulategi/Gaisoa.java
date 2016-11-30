@@ -1,6 +1,7 @@
 package Anbulategi;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Gaisoa {
     private String izena;
@@ -12,10 +13,7 @@ public class Gaisoa {
     private int GSZ;
     private boolean pentsioduna = false;
     private int medikua;
-    //private bajaTxostena baja;
     //private Txostena txostena;
-    //private ErrezetaZerrenda errezetak = new ErrezetaZerrenda();
-    //private Sendagilea sendagilea;
     
    
     public Gaisoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ, int medikuNAN){
@@ -33,7 +31,6 @@ public class Gaisoa {
     }
     
     //GETTER
-    
     public String getIzena(){
         return izena;
     }
@@ -83,7 +80,6 @@ public class Gaisoa {
     
 
     //SETTER
-    
     public void setIzena(String izena){
         this.izena = izena;
     }
@@ -114,8 +110,12 @@ public class Gaisoa {
 
 
     //METODOAK
-    
     public void kontsultaEskatu(){
     
-    } 
+    }
+    
+    public TxandaZerrenda gaisoarenTxandak(){
+        //gaurtik aurrerakoak bakarrim eskatuko dira
+        return DB.getNDB().gaisoarenTxandak(new Date(), GSZ);
+    }
 }

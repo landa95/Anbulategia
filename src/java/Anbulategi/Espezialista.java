@@ -24,5 +24,4 @@ public class Espezialista extends Sendagilea{
         his.eguneratuHorriBrezia(pEguneraketa, espezialitatea);
         DB.getNDB().historialalEguneratu(his);
     }
-    
 }

@@ -18,11 +18,15 @@ public class Errezeta {
     private int iraupena;
     private Date data;
     private String aginduak;
+    private int medikua;
+    
     
     //Constructor
-    public Errezeta(String pBot, int pEgunak){
+    public Errezeta(String pBot, int pEgunak, int mNAN){
         botika = pBot;
         iraupena = pEgunak;
+        data = new Date();
+        medikua=mNAN;
     }
     
     //Methods
