@@ -5,18 +5,20 @@
  */
 package Anbulategi;
 
+import java.util.Date;
+
 /**
  *
  * @author Oier
  */
 public class Txanda {
     //AT
-    private String ordua;
+    private Date ordua;
     private int medikua;
     private int gaisoa;
     
     //Constructor
-    public Txanda(String pOrdua, int medikuID, int pGSZ) {
+    public Txanda(Date pOrdua, int medikuID, int pGSZ) {
         ordua=pOrdua;
         medikua=medikuID;
         gaisoa=pGSZ;

@@ -37,7 +37,7 @@ public class Idazkaria {
         return orduak;
     }
     
-    public void txandakEsleitu(String pOrdua, int pGSZ){
+    public void txandakEsleitu(Date pOrdua, int pGSZ){
         int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
         Txanda txanda = new Txanda(pOrdua, medikuID, pGSZ);
         DB.getNDB().txandaGorde(txanda);
