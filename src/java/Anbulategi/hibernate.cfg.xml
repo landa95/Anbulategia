@@ -48,8 +48,8 @@ Contributor(s):
     <property name="hibernate.connection.password"/>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping resource="../../Gaixoa.hbm.xml"/>
-    <mapping resource="../../Errezeta.hbm.xml"/>
+    <mapping resource="Anbnulategi/Gaixoa.hbm.xml"/>
+    <mapping resource="Anbulategi/Errezeta.hbm.xml"/>
     <mapping resource="Anbulategi/Idazkaria.hbm.xml"/>
     <mapping resource="Anbulategi/Sendagilea.hbm.xml"/>
     <mapping resource="Anbulategi/Historial.hbm.xml"/>
