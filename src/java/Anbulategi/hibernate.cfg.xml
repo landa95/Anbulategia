@@ -43,10 +43,18 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/anbulategia?zeroDateTimeBehavior=convertToNull [root on Default schema]</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/anbulategia?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.password"/>
     <property name="hibernate.current_session_context_class">thread</property>
     <property name="hibernate.show_sql">true</property>
+    <mapping resource="../../Gaixoa.hbm.xml"/>
+    <mapping resource="../../Errezeta.hbm.xml"/>
+    <mapping resource="Anbulategi/Idazkaria.hbm.xml"/>
+    <mapping resource="Anbulategi/Sendagilea.hbm.xml"/>
+    <mapping resource="Anbulategi/Historial.hbm.xml"/>
+    <mapping resource="Anbulategi/bajaTxostena.hbm.xml"/>
+    <mapping resource="Anbulategi/Espezialista.hbm.xml"/>
+    <mapping resource="Anbulategi/Txanda.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
