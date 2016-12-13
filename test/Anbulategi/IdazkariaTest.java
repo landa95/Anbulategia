@@ -73,7 +73,7 @@ public class IdazkariaTest {
     
     @Test
     public void testTxandakEsleitu(){
-        //ordu posibleekin txandak eslitzea
+        //ordu posibleekin txandak esleitzea
         //ordu ezinezkoekin orduak esleitzea
         //datubasean ez dagoen gaixoak ordua esleiztea
         //datubasean ez dagoen medikua esleitzea
@@ -94,34 +94,6 @@ public class IdazkariaTest {
     public void testGaixoDatuakIkusi(){
         //datuak normal ikusi
         //gaixoa datubasean ez dagoenean
-        fail("Not yet implemented");
-    }
-    
-    @Test
-    public void testGaixoIzenaAldatu(){
-        //datua aldatu badago
-        //datua aldatu ez badago
-        fail("Not yet implemented");
-    }
-    
-    @Test
-    public void testGaixoAbizenakAldatu(){
-        //datua aldatu badago
-        //datua aldatu ez badago
-        fail("Not yet implemented");
-    }
-    
-    @Test
-    public void testTelfAldatu(){
-        //datua aldatu badago
-        //datua aldatu ez badago
-        fail("Not yet implemented");
-    }
-    
-    @Test
-    public void testGaixoHelbAldatu(){
-        //datua aldatu badago
-        //datua aldatu ez badago
         fail("Not yet implemented");
     }
 }
