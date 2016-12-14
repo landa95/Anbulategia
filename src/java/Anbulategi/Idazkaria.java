@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,7 +33,7 @@ public class Idazkaria {
     }
     
     public ArrayList<String> orduLibreakErakutsi(Date pEguna,int pGSZ){
-        int medikuID = DB.getNDB().gaixoGutxienDituenMedikua();
+        int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
         ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna, medikuID);
         return orduak;
     }
@@ -90,4 +91,31 @@ public class Idazkaria {
         DB.getNDB().eguneratuGaixoa(pGaixoGSZ, "Helbidea", pHelbBerria);
     }
     
+    public void sendagileaAldatu(int pMedikuID, Date pEguna) {
+        TxandaZerrenda egunekoTxanda = DB.getNDB().medikuarenTxanda(pMedikuID, pEguna);
+        Iterator<Txanda> itr = egunekoTxanda.getIterator();
+        Txanda txanda;
+        boolean libre = true;
+        while (itr.hasNext()) {
+            txanda = itr.next();
+            int gaixoa = txanda.getGaixoa();
+            if (libre) {
+                int medikuId = DB.getNDB().bilatuEgunaLibrekoSendagileak(pEguna);
+                if (medikuId == -1) libre = false;
+                else{
+                    Date orduLibrea = DB.getNDB().orduLibrea(pEguna, medikuId);
+                    DB.getNDB().txandaAldatu(txanda, new Txanda(orduLibrea,medikuId, gaixoa));
+                }
+            }
+            else{
+                Calendar cal = Calendar.getInstance(); 
+                cal.setTime(pEguna); 
+                cal.add(Calendar.DATE, 1);
+                pEguna = cal.getTime();
+                Date orduLibrea = DB.getNDB().orduLibrea(pEguna, pMedikuID); //data horretaik aurrerako hurrengo ordu librea bilatuko du
+                DB.getNDB().txandaAldatu(txanda, new Txanda(orduLibrea,pMedikuID, gaixoa));
+            }
+        }
+    }
+
 }

@@ -15,13 +15,16 @@ public class Txanda {
     //AT
     private Date ordua;
     private int medikua;
-    private int gaisoa;
+    private int gaixoa;
     
     //Constructor
     public Txanda(Date pOrdua, int medikuID, int pGSZ) {
         ordua=pOrdua;
         medikua=medikuID;
-        gaisoa=pGSZ;
+        gaixoa=pGSZ;
     }
     
+    public int getGaixoa(){
+        return gaixoa;
+    }
 }

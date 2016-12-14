@@ -103,4 +103,24 @@ public class DB {
     int gaixoarenMedikua(int pGSZ) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    ArrayList<Integer> espezialistaLibrerik(Date pEguna, String espezialitatea) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    TxandaZerrenda medikuarenTxanda(int pMedikuID, Date pEguna) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    int bilatuEgunaLibrekoSendagileak(Date pEguna) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void txandaAldatu(Txanda txanda, Txanda txanda0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    Date orduLibrea(Date pEguna, int pMedikuID) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

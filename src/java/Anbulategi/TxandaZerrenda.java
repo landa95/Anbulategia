@@ -6,6 +6,7 @@
 package Anbulategi;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -23,5 +24,9 @@ class TxandaZerrenda {
     //Methods
     public void addTxanda(Txanda pTxanda){
         lista.add(pTxanda);
+    }
+
+    Iterator<Txanda> getIterator() {
+        return lista.iterator();
     }
 }
