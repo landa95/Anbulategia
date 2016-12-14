@@ -3,4 +3,31 @@
 
 <hibernate-mapping>
   <class name="Anbulategi.Gaixoa" table="gaisoa"/>
+      <id name="GSZ" column ="gaisoa">
+        <generator class = "native"/>
+    </id>
+    <property name ="izena" type ="String"column ="Izena" />
+    <property name ="abizena1" type ="String" column ="Abizena1" />
+    <property name ="abizena2" type ="String" column ="Abizena2" />
+    <property name ="telefonoa" type ="int" column ="Telefonoa" />
+    <property name ="bizilekua" type ="String" column ="Herria" />
+    <property name ="adina" type ="int" column ="Adina" />
+    <property name ="sendagilea type ="String" column ="Abizena2" />
+    <many-to-one name = "medikua"class = "Sendagilea" fetch = "select">
+        <column name = "SNan" not-null = "true"/>
+    </many-to-one>
+    <set name="errezetak" table="errezeta" inverse="true" lazy="true" fetch="select">
+        <key>
+            <column name="errezetaId" not-null="true" />
+        </key>        
+        <one-to-many class="Anbulategi.Errezeta" />
+    </set>
+    <set name="bajaDokumentuak" table="bajadokumentua" inverse="true" lazy="true" fetch="select">
+        <key>
+            <column name="DokumentuId" not-null="true" />
+        </key>        
+        <one-to-many class="Anbulategi.bajaTxostena" />
+    </set>
+    <!one to one erlazioa gaixoa & historiala-->
+    
 </hibernate-mapping>

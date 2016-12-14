@@ -14,6 +14,8 @@ public class Espezialista extends Sendagilea{
     private String espezialitatea;
     
     //Constructor
+    public Espezialista(){}
+    
     public Espezialista(int pNan, String pIz, String pAb) {
         super(pNan, pIz, pAb);
     }
@@ -21,7 +23,22 @@ public class Espezialista extends Sendagilea{
     //Methods
     public void historialBerezia(int pGSZ, String pEguneraketa) {
         Historial his = DB.getNDB().historialaBilatu(pGSZ);
-        his.eguneratuHorriBrezia(pEguneraketa, espezialitatea);
+        his.eguneratuHorriBrezia(pEguneraketa, getEspezialitatea());
         DB.getNDB().historialalEguneratu(his);
+    }
+    
+    
+    /**
+     * @return the espezialitatea
+     */
+    public String getEspezialitatea() {
+        return espezialitatea;
+    }
+
+    /**
+     * @param espezialitatea the espezialitatea to set
+     */
+    public void setEspezialitatea(String espezialitatea) {
+        this.espezialitatea = espezialitatea;
     }
 }

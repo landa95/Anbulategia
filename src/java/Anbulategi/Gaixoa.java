@@ -2,6 +2,7 @@ package Anbulategi;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 
 public class Gaixoa {
     //AT
@@ -13,10 +14,14 @@ public class Gaixoa {
     private String bizilekua;
     private int GSZ;
     private boolean pentsioduna = false;
-    private int medikua;
+    private Sendagilea medikua;
+    private Set<Errezeta> errezetak;
+    private Set<bajaTxostena> bajaDokumentuak;
     //private Txostena txostena;
     
     //Cosntructor
+    
+    public Gaixoa(){}
     public Gaixoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ){
         this.izena = izena;
         this.abizena1 = abizena1;
@@ -79,7 +84,7 @@ public class Gaixoa {
     }
     
      public int setMedikua(){
-        return this.medikua;
+        return this.getMedikua();
     }
     
     //SETTER
@@ -112,7 +117,7 @@ public class Gaixoa {
     }
 
     public void setMedikua(int medikuNAN){
-        this.medikua = medikuNAN;
+        this.setMedikua(medikuNAN);
     }
     //METODOAK
     public void kontsultaEskatu(){
@@ -123,4 +128,47 @@ public class Gaixoa {
         //gaurtik aurrerakoak bakarrim eskatuko dira
         return DB.getNDB().gaixoarenTxandak(new Date(), GSZ);
     }
+
+    /**
+     * @return the medikua
+     */
+    public Sendagilea getMedikua() {
+        return medikua;
+    }
+
+    /**
+     * @param medikua the medikua to set
+     */
+    public void setMedikua(Sendagilea medikua) {
+        this.medikua = medikua;
+    }
+
+    /**
+     * @return the errezetak
+     */
+    public Set<Errezeta> getErrezetak() {
+        return errezetak;
+    }
+
+    /**
+     * @param errezetak the errezetak to set
+     */
+    public void setErrezetak(Set<Errezeta> errezetak) {
+        this.errezetak = errezetak;
+    }
+
+    /**
+     * @return the bajaDokumentuak
+     */
+    public Set<bajaTxostena> getBajaDokumentuak() {
+        return bajaDokumentuak;
+    }
+
+    /**
+     * @param bajaDokumentuak the bajaDokumentuak to set
+     */
+    public void setBajaDokumentuak(Set<bajaTxostena> bajaDokumentuak) {
+        this.bajaDokumentuak = bajaDokumentuak;
+    }
+    
 }

@@ -5,6 +5,15 @@
 
 <hibernate-mapping>
 <class name="Anbulategi.Errezeta" table="errezeta"/>
-
-
+    <id name = "errezetaId" column = "ErrezetaId">
+        <generator class = "native"/>
+    </id>
+    <property name= "botika" type = "String" column = "Botika"/>
+    <property name= "data" type = "java.util.Date" column = "Data"/>
+    <property name= "iraupena" type = "int" column = "Iraupena"/>
+    <property name= "aginduak" type = "String" column = "Aginduak"/>
+    <many-to-one name = "GSZ" class = "Anbulategia.Gaixoa" fetch = "select">
+        <column name = "GSZ" not-null = "true"/>
+    </many-to-one>
+        
 </hibernate-mapping>

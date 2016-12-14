@@ -6,5 +6,4 @@
 <hibernate-mapping>
 <class name="Anbulategi.Idazkaria" table="idazkaria"/>
 
-
 </hibernate-mapping>

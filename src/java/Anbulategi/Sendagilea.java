@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,8 +19,10 @@ class Sendagilea {
     private int NAN;
     private String izena;
     private String abizena;
+    private Set<Gaixoa> gaixoak;
     
     //Constructor
+    public Sendagilea(){}
     public Sendagilea(int pNan, String pIz, String pAb) {
         NAN = pNan;
         izena = pIz;
@@ -47,14 +50,71 @@ class Sendagilea {
         bajaTxostena txostena = new bajaTxostena(dBaja, dAlta);
     }
     
-    public Errezeta errezetaSortu(String pBotika, int pIraupena, String pAginduak){
-        Errezeta errezeta= new Errezeta(pBotika, pIraupena, NAN);
+    public Errezeta errezetaSortu(String pBotika, int pIraupena, String pAginduak,int GSZ){
+        Errezeta errezeta= new Errezeta(pBotika, pIraupena, GSZ);
         errezeta.setAginduak(pAginduak);
         DB.getNDB().errezetaGehitu(errezeta);
         return errezeta; //gaisoak behar badu errezeta izan dezan
     }
     
     public TxandaZerrenda egunekoTxandak(){
-        return DB.getNDB().sendagilearenEgunekoTxandak(new Date(),NAN);
+        return DB.getNDB().sendagilearenEgunekoTxandak(new Date(), getNAN());
     }
+
+    /**
+     * @return the gaixoak
+     */
+    public Set<Gaixoa> getGaixoak() {
+        return gaixoak;
+    }
+
+    /**
+     * @param gaixoak the gaixoak to set
+     */
+    public void setGaixoak(Set<Gaixoa> gaixoak) {
+        this.gaixoak = gaixoak;
+    }
+
+    /**
+     * @return the NAN
+     */
+    public int getNAN() {
+        return NAN;
+    }
+
+    /**
+     * @param NAN the NAN to set
+     */
+    public void setNAN(int NAN) {
+        this.NAN = NAN;
+    }
+
+    /**
+     * @return the izena
+     */
+    public String getIzena() {
+        return izena;
+    }
+
+    /**
+     * @param izena the izena to set
+     */
+    public void setIzena(String izena) {
+        this.izena = izena;
+    }
+
+    /**
+     * @return the abizena
+     */
+    public String getAbizena() {
+        return abizena;
+    }
+
+    /**
+     * @param abizena the abizena to set
+     */
+    public void setAbizena(String abizena) {
+        this.abizena = abizena;
+    }
+        
 }

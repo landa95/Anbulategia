@@ -2,4 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
   <class name="Anbulategi.Sendagilea" table="sendagilea"/>
+    <id name="NAN" type = "int" column ="sendagilea">
+        <generator class = "native"/>
+    </id>
+     <property name ="izena" type ="String"column ="Izena" />
+     <property name ="abizena" type ="String"column ="Abizena" />
+    <set name="gaixoak" table="gaisoa" inverse="true" lazy="true" fetch="select">
+        <key>
+            <column name="SNan" not-null="true" />
+        </key>        
+        <one-to-many class="Anbulategi.Gaixoa" />
+    </set>
 </hibernate-mapping>
