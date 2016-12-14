@@ -5,6 +5,8 @@
     <id name="NAN" type = "int" column ="sendagilea">
         <generator class = "native"/>
     </id>
+    <one-to-one name="espezialista" class="Anbulategia.Espezialista"
+			cascade="save-update"></one-to-one>
      <property name ="izena" type ="String"column ="Izena" />
      <property name ="abizena" type ="String"column ="Abizena" />
     <set name="gaixoak" table="gaisoa" inverse="true" lazy="true" fetch="select">

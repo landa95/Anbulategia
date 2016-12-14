@@ -2,5 +2,15 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-  <class name="Anbulategi.bajaTxostena" table="bajadokumentua"/>
+  <class name="Anbulategi.Historial" table="historial"/>
+    <id name = "hzenbakia" type = "int" >
+        <column name = "GSZ"/>
+       <generator class = "foreign">
+        <param name = "property">gaixoa</param>
+       </generator>    
+    </id>
+    <one-to-one name="gaixoa" class="Anbulategia.Gaixoa"
+			constrained="true"></one-to-one>
+    <property name = "historia" type = "String" column= "Gaixotasuna"/>
+    
 </hibernate-mapping>

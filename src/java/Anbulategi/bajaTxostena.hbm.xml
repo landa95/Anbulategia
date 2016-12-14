@@ -3,4 +3,15 @@
 
 <hibernate-mapping>
   <class name="Anbulategi.bajaTxostena" table="bajadokumentua"/>
+  <id name = "dokumentuId" type = "int" column = "DokumentuId" >
+       <generator class = "native"/>
+  </id>
+  <property name = "baja" type ="java.util.Date" column = "Baja/>
+  <property name = "alta" type ="java.util.Date" column = "Alta/>
+  <property name = "bajaArrazoia" type ="String" column = "BajaArrazoia/>
+  <property name = "AltaArrazoia" type ="String" column = "AltaArrazoia/>
+  <many-to-one name = "GSZ" class = "Anbulategia.Gaixoa" fetch = "select">
+        <column name = "GSZ" not-null = "true"/>
+  </many-to-one>
+  
 </hibernate-mapping>

@@ -6,4 +6,16 @@
         <generator class = "native"/>
     </id>
      <property name ="espezialitatea" type ="String"column ="Espezialitatea" />
+
+
+    <id name = "SNan" type = "int" >
+        <column name = "SNan"/>
+       <generator class = "foreign">
+        <param name = "property">sendagilea</param>
+       </generator>    
+    </id>
+    <one-to-one name="sendagilea" class="Anbulategia.Sendagilea"
+			constrained="true"></one-to-one>     
+     
+
 </hibernate-mapping>

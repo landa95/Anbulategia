@@ -13,6 +13,8 @@ public class Espezialista extends Sendagilea{
     //AT
     private String espezialitatea;
     
+    private Sendagilea sendagilea;
+    
     //Constructor
     public Espezialista(){}
     

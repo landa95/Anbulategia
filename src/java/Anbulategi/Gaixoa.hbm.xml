@@ -6,6 +6,8 @@
       <id name="GSZ" column ="gaisoa">
         <generator class = "native"/>
     </id>
+    <one-to-one name="historiala" class="Anbulategia.Historial"
+			cascade="save-update"></one-to-one>
     <property name ="izena" type ="String"column ="Izena" />
     <property name ="abizena1" type ="String" column ="Abizena1" />
     <property name ="abizena2" type ="String" column ="Abizena2" />

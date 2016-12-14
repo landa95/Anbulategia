@@ -20,6 +20,8 @@ class Historial {
     private int hZenbakia;
     private String historia;
     private HorriBereziList hBereziak;
+    
+    private Gaixoa gaisoa;
 
     public Historial(int pGSZ, int pHzenb) {
         gGSZ = pGSZ;
@@ -31,16 +33,86 @@ class Historial {
     public void eguneratu(String pEguneraketa) {
        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
        Date date = new Date();
-       historia+=dateFormat.format(date)+":\n"+pEguneraketa+"\n\n";   
+        setHistoria(getHistoria() + dateFormat.format(date)+":\n"+pEguneraketa+"\n\n");   
     }
 
     public void eguneratuHorriBrezia(String pEguneraketa, String pEspezialitatea) {
-        hBereziak.eguneratuHorria(pEguneraketa, pEspezialitatea);
+        gethBereziak().eguneratuHorria(pEguneraketa, pEspezialitatea);
     }
     
     public boolean nireGSZda(int pGSZ){
-        if (gGSZ == pGSZ) return true;
+        if (getgGSZ() == pGSZ) return true;
         else return false;
+    }
+
+    /**
+     * @return the gGSZ
+     */
+    public int getgGSZ() {
+        return gGSZ;
+    }
+
+    /**
+     * @param gGSZ the gGSZ to set
+     */
+    public void setgGSZ(int gGSZ) {
+        this.gGSZ = gGSZ;
+    }
+
+    /**
+     * @return the hZenbakia
+     */
+    public int gethZenbakia() {
+        return hZenbakia;
+    }
+
+    /**
+     * @param hZenbakia the hZenbakia to set
+     */
+    public void sethZenbakia(int hZenbakia) {
+        this.hZenbakia = hZenbakia;
+    }
+
+    /**
+     * @return the historia
+     */
+    public String getHistoria() {
+        return historia;
+    }
+
+    /**
+     * @param historia the historia to set
+     */
+    public void setHistoria(String historia) {
+        this.historia = historia;
+    }
+
+    /**
+     * @return the hBereziak
+     */
+    public HorriBereziList gethBereziak() {
+        return hBereziak;
+    }
+
+    /**
+     * @param hBereziak the hBereziak to set
+     */
+    public void sethBereziak(HorriBereziList hBereziak) {
+        this.hBereziak = hBereziak;
+    }
+
+    /**
+     * @return the gaisoa
+     */
+    public Gaixoa getGaisoa() {
+        return gaisoa;
+    }
+
+    /**
+     * @param gaisoa the gaisoa to set
+     */
+    public void setGaisoa(Gaixoa gaisoa) {
+        this.gaisoa = gaisoa;
     }
     
 }

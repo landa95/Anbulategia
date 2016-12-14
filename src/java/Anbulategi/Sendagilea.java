@@ -19,8 +19,9 @@ class Sendagilea {
     private int NAN;
     private String izena;
     private String abizena;
+   
     private Set<Gaixoa> gaixoak;
-    
+    private Espezialista espezialista;
     //Constructor
     public Sendagilea(){}
     public Sendagilea(int pNan, String pIz, String pAb) {
@@ -115,6 +116,20 @@ class Sendagilea {
      */
     public void setAbizena(String abizena) {
         this.abizena = abizena;
+    }
+
+    /**
+     * @return the espezialista
+     */
+    public Espezialista getEspezialista() {
+        return espezialista;
+    }
+
+    /**
+     * @param espezialista the espezialista to set
+     */
+    public void setEspezialista(Espezialista espezialista) {
+        this.espezialista = espezialista;
     }
         
 }

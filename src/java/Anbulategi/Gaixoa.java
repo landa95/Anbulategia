@@ -15,6 +15,7 @@ public class Gaixoa {
     private int GSZ;
     private boolean pentsioduna = false;
     private Sendagilea medikua;
+    private Historial historiala;
     private Set<Errezeta> errezetak;
     private Set<bajaTxostena> bajaDokumentuak;
     //private Txostena txostena;
@@ -61,7 +62,7 @@ public class Gaixoa {
     }
     
     public int getTxartela(){
-        return GSZ;
+        return getGSZ();
     }
     
     public ArrayList getDatuPertsonalak(){
@@ -74,7 +75,7 @@ public class Gaixoa {
         lista.add(adina);
         lista.add(telefonoa);
         lista.add(bizilekua);
-        lista.add(GSZ);
+        lista.add(getGSZ());
         
         return lista;
     }
@@ -113,7 +114,7 @@ public class Gaixoa {
     }
     
     public void setTxartela(int txartelzenb){
-        this.GSZ = txartelzenb;
+        this.setGSZ(txartelzenb);
     }
 
     public void setMedikua(int medikuNAN){
@@ -126,7 +127,7 @@ public class Gaixoa {
     
     public TxandaZerrenda gaixoarenTxandak(){
         //gaurtik aurrerakoak bakarrim eskatuko dira
-        return DB.getNDB().gaixoarenTxandak(new Date(), GSZ);
+        return DB.getNDB().gaixoarenTxandak(new Date(), getGSZ());
     }
 
     /**
@@ -169,6 +170,34 @@ public class Gaixoa {
      */
     public void setBajaDokumentuak(Set<bajaTxostena> bajaDokumentuak) {
         this.bajaDokumentuak = bajaDokumentuak;
+    }
+
+    /**
+     * @return the GSZ
+     */
+    public int getGSZ() {
+        return GSZ;
+    }
+
+    /**
+     * @param GSZ the GSZ to set
+     */
+    public void setGSZ(int GSZ) {
+        this.GSZ = GSZ;
+    }
+
+    /**
+     * @return the historiala
+     */
+    public Historial getHistoriala() {
+        return historiala;
+    }
+
+    /**
+     * @param historiala the historiala to set
+     */
+    public void setHistoriala(Historial historiala) {
+        this.historiala = historiala;
     }
     
 }
