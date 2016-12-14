@@ -61,6 +61,21 @@ class Sendagilea {
     public TxandaZerrenda egunekoTxandak(){
         return DB.getNDB().sendagilearenEgunekoTxandak(new Date(), getNAN());
     }
+    
+    public ArrayList<Integer> espezialistaBilatu(Date pEguna, String espezialitatea) {
+        ArrayList<Integer> medikuList = DB.getNDB().espezialistaLibrerik(pEguna, espezialitatea);
+        return medikuList;
+    }
+    
+    public ArrayList<String> orduLibreakErakutsi(Date pEguna, int medikuID){
+        ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna, medikuID);
+        return orduak;
+    }
+    
+    public void txandakEsleitu(Date pOrdua, int pGSZ, int pMedikua){
+        Txanda txanda = new Txanda(pOrdua, pMedikua, pGSZ);
+        DB.getNDB().txandaGorde(txanda);
+    }
 
     /**
      * @return the gaixoak

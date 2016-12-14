@@ -84,10 +84,6 @@ public class Gaixoa {
         return pentsioduna;
     }
     
-     public int setMedikua(){
-        return this.getMedikua();
-    }
-    
     //SETTER
     public void setIzena(String izena){
         this.izena = izena;
