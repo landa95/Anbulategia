@@ -123,4 +123,12 @@ public class DB {
     Date orduLibrea(Date pEguna, int pMedikuID) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    boolean orduaLibreDago(Date data, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    Sendagilea bilatuMedikua(int pMedikuNAN) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

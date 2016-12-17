@@ -33,15 +33,20 @@ public class Idazkaria {
     }
     
     public ArrayList<String> orduLibreakErakutsi(Date pEguna,int pGSZ){
-        int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
-        ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna, medikuID);
-        return orduak;
+        if (pEguna.after(new Date())){
+            int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
+            ArrayList<String> orduak = DB.getNDB().egunekoOrduLibreak(pEguna, medikuID);
+            return orduak;
+        }
+        else return null;
     }
     
     public void txandakEsleitu(Date pOrdua, int pGSZ){
-        int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
-        Txanda txanda = new Txanda(pOrdua, medikuID, pGSZ);
-        DB.getNDB().txandaGorde(txanda);
+        if (pOrdua.after(new Date())){
+            int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
+            Txanda txanda = new Txanda(pOrdua, medikuID, pGSZ);
+            DB.getNDB().txandaGorde(txanda);
+        }
     }
     
     public void bajaPaperaBerritu(int pGaixoGSZ){
@@ -92,28 +97,30 @@ public class Idazkaria {
     }
     
     public void sendagileaAldatu(int pMedikuID, Date pEguna) {
-        TxandaZerrenda egunekoTxanda = DB.getNDB().medikuarenTxanda(pMedikuID, pEguna);
-        Iterator<Txanda> itr = egunekoTxanda.getIterator();
-        Txanda txanda;
-        boolean libre = true;
-        while (itr.hasNext()) {
-            txanda = itr.next();
-            int gaixoa = txanda.getGaixoa();
-            if (libre) {
-                int medikuId = DB.getNDB().bilatuEgunaLibrekoSendagileak(pEguna);
-                if (medikuId == -1) libre = false;
-                else{
-                    Date orduLibrea = DB.getNDB().orduLibrea(pEguna, medikuId);
-                    DB.getNDB().txandaAldatu(txanda, new Txanda(orduLibrea,medikuId, gaixoa));
+        if (pEguna.after(new Date())){
+            TxandaZerrenda egunekoTxanda = DB.getNDB().medikuarenTxanda(pMedikuID, pEguna);
+            Iterator<Txanda> itr = egunekoTxanda.getIterator();
+            Txanda txanda;
+            boolean libre = true;
+            while (itr.hasNext()) {
+                txanda = itr.next();
+                int gaixoa = txanda.getGaixoa();
+                if (libre) {
+                    int medikuId = DB.getNDB().bilatuEgunaLibrekoSendagileak(pEguna);
+                    if (medikuId == -1) libre = false;
+                    else{
+                        Date orduLibrea = DB.getNDB().orduLibrea(pEguna, medikuId);
+                        DB.getNDB().txandaAldatu(txanda, new Txanda(orduLibrea,medikuId, gaixoa));
+                    }
                 }
-            }
-            else{
-                Calendar cal = Calendar.getInstance(); 
-                cal.setTime(pEguna); 
-                cal.add(Calendar.DATE, 1);
-                pEguna = cal.getTime();
-                Date orduLibrea = DB.getNDB().orduLibrea(pEguna, pMedikuID); //data horretaik aurrerako hurrengo ordu librea bilatuko du
-                DB.getNDB().txandaAldatu(txanda, new Txanda(orduLibrea,pMedikuID, gaixoa));
+                else{
+                    Calendar cal = Calendar.getInstance(); 
+                    cal.setTime(pEguna); 
+                    cal.add(Calendar.DATE, 1);
+                    pEguna = cal.getTime();
+                    Date orduLibrea = DB.getNDB().orduLibrea(pEguna, pMedikuID); //data horretaik aurrerako hurrengo ordu librea bilatuko du
+                    DB.getNDB().txandaAldatu(txanda, new Txanda(orduLibrea,pMedikuID, gaixoa));
+                }
             }
         }
     }

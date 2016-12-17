@@ -5,6 +5,12 @@
  */
 package Anbulategi;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -58,23 +64,56 @@ public class IdazkariaTest {
         Historial his = ndb.historialaBilatu(ga.getTxartela());
         assertTrue(his.nireGSZda(ga.getTxartela())); //gaisoaren historiala sortu da
         
-        //jadanik dagoen gaixo batekin proba
+        //jadanik dagoen gaixo batekin proba -- deberia petar, pero como?
         fail("Not yet implemented");
     }
     
     @Test
     public void testOrduLibreakErakutsi(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateInString = "2016-12-23";
+        Date data = null;
+        try {
+            data = sdf.parse(dateInString);
+        } catch (ParseException ex) {
+            Logger.getLogger(IdazkariaTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //ordu libreak dituen medikuaren proba 
+        ArrayList<String> lista = idazkari.orduLibreakErakutsi(data,987654321);
+        assertFalse(lista.isEmpty());
+        assertNotEquals(lista.size(), 0);
         //ordu librerik ez duen medikuaren proba
-        //datubasean ez dagoen medikuaren proba
+        lista = idazkari.orduLibreakErakutsi(data,987654321);
+        assertTrue(lista.isEmpty());
+        assertEquals(lista.size(), 0);
+        //datubasean ez dagoen gaixoaren proba
         //datubasean ez dagoen gaixoaren proba
         fail("Not yet implemented");
     }
     
     @Test
     public void testTxandakEsleitu(){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm yyyy-MM-dd ");
+        String dateInString = "08:00 2016-12-23";
+        Date data = null;
+        try {
+            data = sdf.parse(dateInString);
+        } catch (ParseException ex) {
+            Logger.getLogger(IdazkariaTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         //ordu posibleekin txandak esleitzea
+        assertTrue(ndb.orduaLibreDago(data,1234567)); //medikuaren id-a da
+        idazkari.txandakEsleitu(data,987654321);
+        assertFalse(ndb.orduaLibreDago(data,1234567)); //medikuaren id-a da
         //ordu ezinezkoekin orduak esleitzea
+        sdf = new SimpleDateFormat("HH:mm yyyy-MM-dd ");
+        dateInString = "08:00 2016-11-20"; //pasata dagoen data
+        try {
+            data = sdf.parse(dateInString);
+        } catch (ParseException ex) {
+            Logger.getLogger(IdazkariaTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        idazkari.txandakEsleitu(data,987654321);
         //datubasean ez dagoen gaixoak ordua esleiztea
         //datubasean ez dagoen medikua esleitzea
         fail("Not yet implemented");

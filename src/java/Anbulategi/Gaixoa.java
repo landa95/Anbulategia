@@ -20,9 +20,7 @@ public class Gaixoa {
     private Set<bajaTxostena> bajaDokumentuak;
     //private Txostena txostena;
     
-    //Cosntructor
-    
-    public Gaixoa(){}
+    //Constructor
     public Gaixoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ){
         this.izena = izena;
         this.abizena1 = abizena1;
@@ -66,7 +64,6 @@ public class Gaixoa {
     }
     
     public ArrayList getDatuPertsonalak(){
-    
         ArrayList lista = new ArrayList();
 
         lista.add(izena);
@@ -75,7 +72,7 @@ public class Gaixoa {
         lista.add(adina);
         lista.add(telefonoa);
         lista.add(bizilekua);
-        lista.add(getGSZ());
+        lista.add(GSZ);
         
         return lista;
     }
@@ -108,17 +105,19 @@ public class Gaixoa {
     public void setBizilekua(String bizilekua){
         this.bizilekua = bizilekua;
     }
-    
-    public void setTxartela(int txartelzenb){
-        this.setGSZ(txartelzenb);
-    }
 
     public void setMedikua(int medikuNAN){
-        this.setMedikua(medikuNAN);
+        this.medikua = DB.getNDB().bilatuMedikua(medikuNAN);
     }
-    //METODOAK
-    public void kontsultaEskatu(){
+    //METODOAK   
+    public ArrayList<String> OrduaAukeratu(Date pData){
+        Idazkaria idaz = new Idazkaria();
+        return idaz.orduLibreakErakutsi(pData, GSZ);
+    }
     
+     public void kontsultaEskatu(Date pData){
+        Idazkaria idaz = new Idazkaria();
+        idaz.txandakEsleitu(pData, GSZ);
     }
     
     public TxandaZerrenda gaixoarenTxandak(){
