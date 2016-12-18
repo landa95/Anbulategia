@@ -5,17 +5,23 @@
  */
 package Anbulategi;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
 /**
  *
  * @author Oier
  */
+@Entity
+@Table(name="espezialista")
+@PrimaryKeyJoinColumn(name="SNan")
 public class Espezialista extends Sendagilea{
     //AT
+    @Column(name="Espezialitatea")
     private String espezialitatea;
-    
-    private Sendagilea sendagilea;
-    
-    //Constructor
+      //Constructor
     public Espezialista(){}
     
     public Espezialista(int pNan, String pIz, String pAb) {

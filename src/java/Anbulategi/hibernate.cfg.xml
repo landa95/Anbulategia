@@ -54,7 +54,6 @@ Contributor(s):
     <mapping resource="Anbulategi/Sendagilea.hbm.xml"/>
     <mapping resource="Anbulategi/Historial.hbm.xml"/>
     <mapping resource="Anbulategi/bajaTxostena.hbm.xml"/>
-    <mapping resource="Anbulategi/Espezialista.hbm.xml"/>
     <mapping resource="Anbulategi/Txanda.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

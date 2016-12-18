@@ -7,21 +7,40 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import org.hibernate.annotations.IndexColumn;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-class Sendagilea {
+@Entity
+@Table(name="sendagilea")
+@Inheritance(strategy=InheritanceType.JOINED)
+public class Sendagilea {
     //AT
+    @Id
+    @GeneratedValue
+    @Column(name = "SNan")
     private int NAN;
+    @Column(name ="Izena")
     private String izena;
+    @Column(name ="Abizena")
     private String abizena;
-   
+    @OneToMany(cascade={CascadeType.ALL})
+    @JoinColumn(name = "GSZ")
+    @IndexColumn(name ="GSZ")
     private Set<Gaixoa> gaixoak;
-    private Espezialista espezialista;
     //Constructor
     public Sendagilea(){}
     public Sendagilea(int pNan, String pIz, String pAb) {
@@ -132,19 +151,5 @@ class Sendagilea {
     public void setAbizena(String abizena) {
         this.abizena = abizena;
     }
-
-    /**
-     * @return the espezialista
-     */
-    public Espezialista getEspezialista() {
-        return espezialista;
-    }
-
-    /**
-     * @param espezialista the espezialista to set
-     */
-    public void setEspezialista(Espezialista espezialista) {
-        this.espezialista = espezialista;
-    }
-        
+ 
 }
