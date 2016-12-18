@@ -70,8 +70,8 @@ public class Sendagilea {
         bajaTxostena txostena = new bajaTxostena(dBaja, dAlta);
     }
     
-    public Errezeta errezetaSortu(String pBotika, int pIraupena, String pAginduak,int GSZ){
-        Errezeta errezeta= new Errezeta(pBotika, pIraupena, GSZ);
+    public Errezeta errezetaSortu(String pBotika, int pIraupena, String pAginduak,Gaixoa gaixoa){
+        Errezeta errezeta= new Errezeta(pBotika, pIraupena, gaixoa);
         errezeta.setAginduak(pAginduak);
         DB.getNDB().errezetaGehitu(errezeta);
         return errezeta; //gaisoak behar badu errezeta izan dezan

@@ -6,28 +6,48 @@
 package Anbulategi;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 
 /**
  *
  * @author Oier
  */
+@Entity
+@Table(name = "errezeta")
 public class Errezeta {
     //AT
+    @Id
+    @GeneratedValue
+    @Column(name ="ErrezetaId")
+    private int errezetaId;
     
+    @Column(name = "Botika")
     private String botika;
+    @Column(name = "Iraupena")
     private int iraupena;
+    @Column(name = "Data")
     private Date data;
+    @Column(name = "Aginduak")
     private String aginduak;
-    private int GSZ;    
+    
+    @ManyToOne
+    @JoinColumn(name  ="GSZ")
+    private Gaixoa gaixoa;    
     
    public Errezeta(){}
     
     //Constructor
-    public Errezeta(String pBot, int pEgunak, int gGSZ){
+    public Errezeta(String pBot, int pEgunak, Gaixoa gGSZ){
         botika = pBot;
         iraupena = pEgunak;
-        GSZ = gGSZ;
+        gaixoa = gGSZ;
         data = new Date();
     }
     
@@ -94,15 +114,15 @@ public class Errezeta {
     /**
      * @return the GSZ
      */
-    public int getGSZ() {
-        return GSZ;
+    public Gaixoa getGaixoa() {
+        return gaixoa;
     }
 
     /**
      * @param GSZ the GSZ to set
      */
-    public void setGSZ(int GSZ) {
-        this.GSZ = GSZ;
+    public void setGSZ(Gaixoa gaixoa) {
+        this.gaixoa = gaixoa;
     }
     
 }

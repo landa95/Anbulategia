@@ -3,20 +3,45 @@ package Anbulategi;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "gaisoa")
 public class Gaixoa {
     //AT
+    @Column(name="Izena")
     private String izena;
+    @Column(name="Abizena1")
     private String abizena1;
+    @Column(name="Abizena2")
     private String abizena2;
+    @Column(name="Adina")
     private int adina;
+    @Column(name="Telefonoa")
     private int telefonoa;
+    @Column(name="Herria")
     private String bizilekua;
+   
+    @Id
+   @GeneratedValue
+   @Column(name="GSZ")
     private int GSZ;
     private boolean pentsioduna = false;
     private Sendagilea medikua;
+    
+    @OneToOne(mappedBy="historiala", cascade=CascadeType.ALL)
     private Historial historiala;
+    
+    @OneToMany(mappedBy ="GSZ")
     private Set<Errezeta> errezetak;
+    @OneToMany(mappedBy="GSZ")
     private Set<bajaTxostena> bajaDokumentuak;
     //private Txostena txostena;
     

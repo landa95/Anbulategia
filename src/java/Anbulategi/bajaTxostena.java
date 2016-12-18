@@ -6,18 +6,38 @@
 package Anbulategi;
 
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Oier
  */
+@Entity
+@Table(name = "bajadokumentua")
 class bajaTxostena {
     //AT
+    @Id
+    @GeneratedValue
+    @Column(name="DokumentuIdd")
+    private int dokumentuId;
+    
+    @Column(name ="BajaData")
     private Date bajaData;
+    @Column(name="AltaData")
     private Date altaData;
+    @Column(name = "BajaArrazoia")
     private String bajaArrazoia;
+    @Column(name="AltaArrazoia")
     private String altaArrazoia;
-    private int GSZ;
+    @ManyToOne
+    @JoinColumn(name  ="GSZ")
+    private Gaixoa gaixoa;
     
     public bajaTxostena(){}
     
@@ -79,14 +99,14 @@ class bajaTxostena {
     /**
      * @return the GSZ
      */
-    public int getGSZ() {
-        return GSZ;
+    public Gaixoa getGaixoa() {
+        return gaixoa;
     }
 
     /**
      * @param GSZ the GSZ to set
      */
-    public void setGSZ(int GSZ) {
-        this.GSZ = GSZ;
+    public void setGSZ(Gaixoa gaixoa) {
+        this.gaixoa = gaixoa;
     }
 }

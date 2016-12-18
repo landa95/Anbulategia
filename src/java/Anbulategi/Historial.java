@@ -3,6 +3,15 @@ package Anbulategi;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,13 +23,23 @@ import java.util.Date;
  *
  * @author Oier
  */
+@Entity
+@Table(name="historial")
 class Historial {
      //AT
+    
     private int gGSZ;
+    @Id
+    @Column(name="GSZ", unique=true, nullable=false)
+    @GeneratedValue(generator="gen")
+    @GenericGenerator(name="gen", strategy="foreign", parameters=@Parameter(name="property", value="gaisoa"))
     private int hZenbakia;
+    @Column(name="gaixotasuna")
     private String historia;
     private HorriBereziList hBereziak;
     
+    @OneToOne
+    @PrimaryKeyJoinColumn
     private Gaixoa gaisoa;
 
     public Historial(int pGSZ, int pHzenb) {
