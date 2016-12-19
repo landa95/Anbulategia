@@ -50,7 +50,7 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
         }
     }
     
-    public Gaixoa getGaisoaByGSZ(int GSZ){
+    public Gaixoa getGaixoaByGSZ(int GSZ){
                 Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
@@ -61,6 +61,7 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
             ex.printStackTrace();
             session.getTransaction().rollback();
             return new Gaixoa();
+        }
     }
     
     
