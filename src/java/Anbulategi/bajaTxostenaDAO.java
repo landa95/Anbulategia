@@ -5,6 +5,8 @@
  */
 package Anbulategi;
 
+import java.util.Date;
+
 /**
  *
  * @author INAKI
@@ -13,5 +15,6 @@ public interface bajaTxostenaDAO {
     public void save(bajaTxostena baja);
     public void delete(bajaTxostena baja);
     public void edit(bajaTxostena baja);
+    
     
 }

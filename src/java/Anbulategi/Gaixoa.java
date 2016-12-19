@@ -183,12 +183,7 @@ public class Gaixoa {
         this.errezetak = errezetak;
     }
 
-    /**
-     * @return the bajaDokumentuak
-     */
-    public Set<bajaTxostena> getBajaDokumentuak() {
-        return bajaDokumentuak;
-    }
+
 
     /**
      * @param bajaDokumentuak the bajaDokumentuak to set
@@ -223,6 +218,13 @@ public class Gaixoa {
      */
     public void setHistoriala(Historial historiala) {
         this.historiala = historiala;
+    }
+
+    /**
+     * @return the bajaDokumentuak
+     */
+    public Set getBajaDokumentuak() {
+        return bajaDokumentuak;
     }
     
 }

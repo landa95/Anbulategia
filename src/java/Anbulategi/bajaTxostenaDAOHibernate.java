@@ -5,6 +5,8 @@
  */
 package Anbulategi;
 
+import java.util.Date;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -51,6 +53,5 @@ public class bajaTxostenaDAOHibernate {
             session.getTransaction().rollback();
         }
         
-    }
-    
+    }   
 }

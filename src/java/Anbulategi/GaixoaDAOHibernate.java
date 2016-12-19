@@ -79,7 +79,6 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
             String hql = "From Errezeta errezeta where gaixoa.GSZ = ?";
             Query kontsulta = session.createQuery(hql).setParameter(0, GSZ);
             List<Errezeta> set = kontsulta.list();
-            
             session.getTransaction().commit();
             return set;
         } catch (Exception ex) {

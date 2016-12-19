@@ -2,6 +2,7 @@ package Anbulategi;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,14 +17,14 @@ import java.util.Date;
 public class DB {
     //AT
     private static DB ndb = null;
-    private final ErrezetaDAOHibernate errezetaManager = new ErrezetaDAOHibernate();
-    private final EspezialistaDAOHibernate espezialistaManager = new EspezialistaDAOHibernate();
-    private final GaixoaDAOHibernate gaixoaManager =new GaixoaDAOHibernate();
-    private final HistorialDAOHibernate historialManager = new HistorialDAOHibernate();
+    private static ErrezetaDAOHibernate errezetaManager = new ErrezetaDAOHibernate();
+    private static EspezialistaDAOHibernate espezialistaManager = new EspezialistaDAOHibernate();
+    private static GaixoaDAOHibernate gaixoaManager =new GaixoaDAOHibernate();
+    private static HistorialDAOHibernate historialManager = new HistorialDAOHibernate();
     //private final IdazkariDAOHibernate idazkariManager = new IdazkariDAOHibernate();
-    private final SendagileaDAOHibernate sendagileaManager = new SendagileaDAOHibernate();
+    private static SendagileaDAOHibernate sendagileaManager = new SendagileaDAOHibernate();
     //private final TxandaDAOHibernate txandaManager = new TxandaDAOHibernate();
-    private final bajaTxostenaDAOHibernate bajaTxostenaManager = new bajaTxostenaDAOHibernate();
+    private static bajaTxostenaDAOHibernate bajaTxostenaManager = new bajaTxostenaDAOHibernate();
     //Constructor
     private DB(){}
     
@@ -76,15 +77,17 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    static Date bajaAzkenEguna(int pGaixoGSZ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static Date bajaAzkenEguna(int pGaixoGSZ) {
+        List<bajaTxostena> bajak   = gaixoaManager.lortuBajaTxostenak(pGaixoGSZ);
+        int i = bajak.size();
+        return bajak.get(i).getAltaData();
     }
 
     Historial historialaBilatu(int pGSZ) {
        return historialManager.historialaBilatu(pGSZ);
     }
 
-   void historialalEguneratu(Historial his) {
+    void historialalEguneratu(Historial his) {
         historialManager.edit(his);
     }
 
@@ -93,7 +96,7 @@ public class DB {
     }
 
     void bajaBerritu(int pGaixoGSZ, Date bajaEgunBerria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //baja edo alta?
     }
 
     void errezetaGehitu(Errezeta errezeta) {
