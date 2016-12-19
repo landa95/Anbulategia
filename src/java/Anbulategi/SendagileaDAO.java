@@ -10,5 +10,8 @@ package Anbulategi;
  * @author INAKI
  */
 public interface SendagileaDAO {
+    public void save(Sendagilea sendagile);
+    public void delete(Sendagilea sendagile);
+    public void edit(Sendagilea sendagile);
     
 }

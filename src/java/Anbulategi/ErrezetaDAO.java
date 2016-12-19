@@ -11,4 +11,8 @@ package Anbulategi;
  */
 public interface ErrezetaDAO {
     
+    public void save(Errezeta errezeta);
+    public void delete(Errezeta errezeta);
+    public void edit(Errezeta errezeta);
+    
 }

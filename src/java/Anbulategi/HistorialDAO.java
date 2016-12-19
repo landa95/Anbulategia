@@ -11,4 +11,8 @@ package Anbulategi;
  */
 public interface HistorialDAO {
     
+    public void save(Historial historiala);
+    public void delete(Historial historiala);
+    public void edit(Historial historiala);
+    
 }
