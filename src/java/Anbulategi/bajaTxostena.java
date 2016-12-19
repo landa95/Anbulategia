@@ -21,6 +21,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "bajadokumentua")
 class bajaTxostena {
+
+    /**
+     * @return the dokumentuId
+     */
+    public int getDokumentuId() {
+        return dokumentuId;
+    }
+
+    /**
+     * @param dokumentuId the dokumentuId to set
+     */
+    public void setDokumentuId(int dokumentuId) {
+        this.dokumentuId = dokumentuId;
+    }
+
+    /**
+     * @param gaixoa the gaixoa to set
+     */
+    public void setGaixoa(Gaixoa gaixoa) {
+        this.gaixoa = gaixoa;
+    }
     //AT
     @Id
     @GeneratedValue
@@ -107,6 +128,6 @@ class bajaTxostena {
      * @param GSZ the GSZ to set
      */
     public void setGSZ(Gaixoa gaixoa) {
-        this.gaixoa = gaixoa;
+        this.setGaixoa(gaixoa);
     }
 }
