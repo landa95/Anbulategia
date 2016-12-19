@@ -11,4 +11,9 @@ package Anbulategi;
  */
 public interface EspezialistaDAO {
     
+    public void save(Espezialista espezialista);
+    public void delete(Espezialista espezialista);
+    public void edit(Espezialista espezialista);
+    public Espezialista EspezialistaByNAN(int SNan);
+    
 }

@@ -16,7 +16,14 @@ import java.util.Date;
 public class DB {
     //AT
     private static DB ndb = null;
-
+    private final ErrezetaDAOHibernate errezetaManager = new ErrezetaDAOHibernate();
+    private final EspezialistaDAOHibernate espezialistaManager = new EspezialistaDAOHibernate();
+    private final GaixoaDAOHibernate gaixoaManager =new GaixoaDAOHibernate();
+    private final HistorialDAOHibernate historialManager = new HistorialDAOHibernate();
+    //private final IdazkariDAOHibernate idazkariManager = new IdazkariDAOHibernate();
+    private final SendagileaDAOHibernate sendagileaManager = new SendagileaDAOHibernate();
+    //private final TxandaDAOHibernate txandaManager = new TxandaDAOHibernate();
+    private final bajaTxostenaDAOHibernate bajaTxostenaManager = new bajaTxostenaDAOHibernate();
     //Constructor
     private DB(){}
     
@@ -28,11 +35,12 @@ public class DB {
     }
 
     void gaisoBerria(Gaixoa ga) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       gaixoaManager.save(ga);
     }
+    
 
     void historialaGorde(Historial his) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        historialManager.save(his);
     }
 
     ArrayList<String> egunekoOrduLibreak(Date pEguna, int pMedikuID) {
@@ -40,7 +48,7 @@ public class DB {
     }
 
     void txandaGorde(Txanda txanda) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //txandaManager.save(txanda);
     }
 
     void bajaBerritu(int pGaixoGSZ, int i) {
@@ -51,12 +59,17 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    void eguneratuGaixoa(int pGaixoGSZ, String aldaketa, String pIzBerria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   void eguneratuGaixoa(int pGaixoGSZ, String aldaketa, String pIzBerria) {
+              
+       Gaixoa gaixo = gaixoaManager.getGaixoaByGSZ(pGaixoGSZ);
+       gaixo.setIzena(pIzBerria);
+       gaixoaManager.edit(gaixo);
     }
 
-    void eguneratuGaixoa(int pGaixoGSZ, String telefonoa, int pTelBerria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void eguneratuGaixoa(int pGaixoGSZ, String Aldaketa,int pTelBerria) {
+       Gaixoa gaixo = gaixoaManager.getGaixoaByGSZ(pGaixoGSZ);
+       gaixo.setTelefonoa(pTelBerria);
+       gaixoaManager.edit(gaixo);
     }
 
     int azkenHistorialZenbakia() {
@@ -68,11 +81,11 @@ public class DB {
     }
 
     Historial historialaBilatu(int pGSZ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return historialManager.historialaBilatu(pGSZ);
     }
 
-    void historialalEguneratu(Historial his) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   void historialalEguneratu(Historial his) {
+        historialManager.edit(his);
     }
 
     int gaixoGutxienDituenMedikua() {
@@ -84,7 +97,7 @@ public class DB {
     }
 
     void errezetaGehitu(Errezeta errezeta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        errezetaManager.save(errezeta);
     }
 
     TxandaZerrenda sendagilearenEgunekoTxandak(Date date, int NAN) {
@@ -97,11 +110,11 @@ public class DB {
     }
 
     boolean gaixoaDago(Gaixoa ga) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return gaixoaManager.gaixoaDago(ga);
     }
 
     int gaixoarenMedikua(int pGSZ) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return gaixoaManager.getGaixoaByGSZ(pGSZ).getMedikua().getNAN();
     }
 
     ArrayList<Integer> espezialistaLibrerik(Date pEguna, String espezialitatea) {
@@ -129,6 +142,6 @@ public class DB {
     }
     
     Sendagilea bilatuMedikua(int pMedikuNAN) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return sendagileaManager.getSendagileaByNAN(pMedikuNAN);
     }
 }

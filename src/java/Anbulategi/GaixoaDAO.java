@@ -19,4 +19,5 @@ public interface GaixoaDAO {
     public Gaixoa getGaixoaByGSZ(int GSZ);
     public List<Errezeta> lortuErrezetak(int GSZ);
     public List<bajaTxostena> lortuBajaTxostenak(int GSZ);
+    public boolean gaixoaDago(Gaixoa ga);
 }

@@ -12,60 +12,60 @@ import util.HibernateUtil;
  *
  * @author INAKI
  */
-public class HistorialDAOHibernate implements HistorialDAO {
+public class EspezialistaDAOHibernate implements EspezialistaDAO{
     
-   @Override
-   public void save(Historial historiala){
-       
-       Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    @Override
+    public void save(Espezialista espezialista){
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
              try {
                 session.beginTransaction();
-                session.saveOrUpdate(historiala);
+                session.saveOrUpdate(espezialista);
                 session.getTransaction().commit();
             }catch (Exception ex) {
                 ex.printStackTrace();
                 session.getTransaction().rollback();
             }
-   }
-   @Override
-    public void delete(Historial historiala){
-        
-         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    }
+    @Override
+    public void delete(Espezialista espezialista){
+            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          try {
             session.beginTransaction();
-            session.delete(historiala);
+            session.delete(espezialista);
             session.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
             session.getTransaction().rollback();
         }
-    }
-            
-   @Override
-    public void edit(Historial historiala){
         
+    }
+    @Override
+    public void edit(Espezialista espezialista){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          try {
             session.beginTransaction();
-            session.update(historiala);
+            session.update(espezialista);
             session.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
             session.getTransaction().rollback();
-        }
+        }  
+        
     }
-      public Historial historialaBilatu(int pGSZ){
-            Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    @Override
+    public Espezialista EspezialistaByNAN(int SNan){
+         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
             session.beginTransaction();
-            Historial e = (Historial) session.get(Historial.class, pGSZ);
+            Espezialista e = (Espezialista) session.get(Espezialista.class, SNan);
             session.getTransaction().commit();
             return e;
         } catch (Exception ex) {
             ex.printStackTrace();
             session.getTransaction().rollback();
-            return new Historial();
+            return new Espezialista();
         }
-      }
+        
+    }
     
 }

@@ -106,6 +106,21 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
             return null;
         }
     }
-    
+    @Override
+    public boolean gaixoaDago(Gaixoa ga){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            String hql = "From Gaixoa gaixo where gaixo.GSZ = ?";
+            Query kontsulta = session.createQuery(hql).setParameter(0, ga.getGSZ());
+            List<Gaixoa> lista = kontsulta.list();
+            session.getTransaction().commit();
+            return !lista.isEmpty();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+            return false;
+        }
+    }
     
 }
