@@ -13,5 +13,5 @@ public interface SendagileaDAO {
     public void save(Sendagilea sendagile);
     public void delete(Sendagilea sendagile);
     public void edit(Sendagilea sendagile);
-    
+    public Sendagilea getSendagileaByNAN(int SNan);
 }

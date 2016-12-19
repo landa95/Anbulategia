@@ -23,26 +23,6 @@ import javax.persistence.Table;
 @Table(name = "errezeta")
 public class Errezeta {
 
-    /**
-     * @return the errezetaId
-     */
-    public int getErrezetaId() {
-        return errezetaId;
-    }
-
-    /**
-     * @param errezetaId the errezetaId to set
-     */
-    public void setErrezetaId(int errezetaId) {
-        this.errezetaId = errezetaId;
-    }
-
-    /**
-     * @param gaixoa the gaixoa to set
-     */
-    public void setGaixoa(Gaixoa gaixoa) {
-        this.gaixoa = gaixoa;
-    }
     //AT
     @Id
     @GeneratedValue
@@ -144,6 +124,27 @@ public class Errezeta {
      */
     public void setGSZ(Gaixoa gaixoa) {
         this.setGaixoa(gaixoa);
+    }
+    
+     /**
+     * @return the errezetaId
+     */
+    public int getErrezetaId() {
+        return errezetaId;
+    }
+
+    /**
+     * @param errezetaId the errezetaId to set
+     */
+    public void setErrezetaId(int errezetaId) {
+        this.errezetaId = errezetaId;
+    }
+
+    /**
+     * @param gaixoa the gaixoa to set
+     */
+    public void setGaixoa(Gaixoa gaixoa) {
+        this.gaixoa = gaixoa;
     }
     
 }

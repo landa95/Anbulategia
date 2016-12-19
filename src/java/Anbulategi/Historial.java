@@ -41,6 +41,10 @@ class Historial {
     @OneToOne
     @PrimaryKeyJoinColumn
     private Gaixoa gaisoa;
+    
+    public Historial() {
+        
+    }
 
     public Historial(int pGSZ, int pHzenb) {
         gGSZ = pGSZ;

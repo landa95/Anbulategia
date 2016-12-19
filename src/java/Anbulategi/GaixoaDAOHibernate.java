@@ -5,6 +5,10 @@
  */
 package Anbulategi;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+import org.hibernate.Query;
 import util.HibernateUtil;
 import org.hibernate.Session;
 
@@ -25,6 +29,7 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
         }
     }
     
+    @Override
     public void delete(Gaixoa gaixo){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          try {
@@ -38,6 +43,7 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
         
     }
     
+    @Override
     public void edit(Gaixoa gaixo){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
          try {
@@ -50,6 +56,7 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
         }
     }
     
+    @Override
     public Gaixoa getGaixoaByGSZ(int GSZ){
                 Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         try {
@@ -61,6 +68,42 @@ public class GaixoaDAOHibernate implements GaixoaDAO {
             ex.printStackTrace();
             session.getTransaction().rollback();
             return new Gaixoa();
+        }
+    }
+    
+    @Override
+    public List<Errezeta> lortuErrezetak(int GSZ){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+         try {
+            session.beginTransaction();
+            String hql = "From Errezeta errezeta where gaixoa.GSZ = ?";
+            Query kontsulta = session.createQuery(hql).setParameter(0, GSZ);
+            List<Errezeta> set = kontsulta.list();
+            
+            session.getTransaction().commit();
+            return set;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+            return null;
+        }
+    }
+    
+    @Override
+    public List<bajaTxostena> lortuBajaTxostenak(int GSZ){
+                Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+         try {
+            session.beginTransaction();
+            String hql = "From bajaTxostena Baja where baja.GSZ = ?";
+            Query kontsulta = session.createQuery(hql).setParameter(0, GSZ);
+            List<bajaTxostena> set = kontsulta.list();
+            
+            session.getTransaction().commit();
+            return set;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            session.getTransaction().rollback();
+            return null;
         }
     }
     

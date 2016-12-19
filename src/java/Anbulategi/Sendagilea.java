@@ -41,6 +41,7 @@ public class Sendagilea {
     @JoinColumn(name = "GSZ")
     @IndexColumn(name ="GSZ")
     private Set<Gaixoa> gaixoak;
+   
     //Constructor
     public Sendagilea(){}
     public Sendagilea(int pNan, String pIz, String pAb) {

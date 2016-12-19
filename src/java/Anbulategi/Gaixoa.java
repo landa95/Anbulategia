@@ -2,6 +2,7 @@ package Anbulategi;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -40,12 +41,16 @@ public class Gaixoa {
     private Historial historiala;
     
     @OneToMany(mappedBy ="GSZ")
-    private Set<Errezeta> errezetak;
+    private Set errezetak = new HashSet();
     @OneToMany(mappedBy="GSZ")
-    private Set<bajaTxostena> bajaDokumentuak;
+    private Set bajaDokumentuak = new HashSet();
     //private Txostena txostena;
     
     //Constructor
+    public Gaixoa(){
+        
+    }
+    
     public Gaixoa(String izena, String abizena1, String abizena2, int adina, int telefonoa, String bizilekua, int GSZ){
         this.izena = izena;
         this.abizena1 = abizena1;
