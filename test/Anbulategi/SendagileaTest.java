@@ -18,6 +18,9 @@ import static org.junit.Assert.*;
  */
 public class SendagileaTest {
     
+    private DB ndb = DB.getNDB();
+    private Sendagilea sendagile = new Sendagilea(123456789, "Pablo", "Agirre"); //datubasean gordeta egon beharko da
+    
     public SendagileaTest() {
     }
     
@@ -36,8 +39,7 @@ public class SendagileaTest {
     @After
     public void tearDown() {
     }
-
-    // TODO add test methods here.
+    
     // The methods must be annotated with annotation @Test. For example:
     //
     // @Test
@@ -45,11 +47,31 @@ public class SendagileaTest {
     
     @Test
     public void testHistorialaKontsultatu(){
+        //dagoen historial bat bilatu
+        Historial his = sendagile.historialaKontsultatu(98765321); //gaixoa datubasean egongo da
+        assertNotEquals(his, null);
+        assertEquals(his.getgGSZ(), 987654321);
+        System.out.println(his.getHistoria());
+        //historiala ez badago
+        his = sendagile.historialaKontsultatu(00000000); //gaixoa datubasean egongo da
+        assertEquals(his, null);
         fail("Not yet implemented");
     }
     
     @Test
     public void testHistorialaEguneratu(){
+        //daturen bat sartuz
+        Historial his = sendagile.historialaKontsultatu(987654321); //gaixoa datubasean egongo da
+        String text = his.getHistoria();
+        sendagile.historialaEguneratu(987654321, "proba aldaketa");
+        his = sendagile.historialaKontsultatu(987654321);
+        assertNotEquals(text, his.getHistoria()); //historia berria eta zaharra konparatu
+        //gehiketa hutsa
+        his = sendagile.historialaKontsultatu(987654321); //gaixoa datubasean egongo da
+        text = his.getHistoria();
+        sendagile.historialaEguneratu(987654321, "");
+        his = sendagile.historialaKontsultatu(987654321);
+        assertEquals(text, his.getHistoria()); //historia berria eta zaharra konparatu
         fail("Not yet implemented");
     }
     
@@ -60,11 +82,27 @@ public class SendagileaTest {
     
     @Test
     public void testErrezetaSortu(){
+        Gaixoa ga = new Gaixoa("Jon", "Nuñez", "Perez", 20, 654321987, "Bilbo", 456789123);
+        Errezeta er = sendagile.errezetaSortu("Botika", 3, "Jan eta gero hartzekoa", ga);
         fail("Not yet implemented");
     }
     
     @Test
     public void testEgunekoTxandak(){
-        fail("Not yet implemented");
+        //txandaren bat duen sendagilea
+        TxandaZerrenda tz = sendagile.egunekoTxandak();
+        assertTrue(tz.size() > 0);
+        assertTrue(tz.size() == 1);
+        System.out.println(tz.toString());
+        //txanda bat baino gehiago dituen sendagilea
+        Sendagilea sen2 = new Sendagilea(78985215, "Jose", "Menendez");
+        tz = sen2.egunekoTxandak();
+        assertTrue(tz.size() > 1);
+        System.out.println(tz.toString());
+        //txandarik ez duen sendagilea
+        sen2 = new Sendagilea(78985215, "Pedro", "Portela");
+        tz = sen2.egunekoTxandak();
+        assertTrue(tz.size() == 0);
+        System.out.println(tz.toString());
     }
 }

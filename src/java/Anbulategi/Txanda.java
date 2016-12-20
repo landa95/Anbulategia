@@ -5,6 +5,7 @@
  */
 package Anbulategi;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -26,5 +27,11 @@ public class Txanda {
     
     public int getGaixoa(){
         return gaixoa;
+    }
+    
+    @Override
+    public String toString(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return String.valueOf(gaixoa)+" "+String.valueOf(medikua)+" "+sdf.format(ordua);
     }
 }

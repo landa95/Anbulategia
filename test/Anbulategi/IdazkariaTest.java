@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
 public class IdazkariaTest {
     
     private DB ndb = DB.getNDB();
-    Idazkaria idazkari = new Idazkaria();
+    private Idazkaria idazkari = new Idazkaria();
             
     public IdazkariaTest() {
     }
@@ -46,7 +46,6 @@ public class IdazkariaTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
     // @Test
@@ -131,7 +130,22 @@ public class IdazkariaTest {
     @Test
     public void testGaixoDatuakIkusi(){
         //datuak normal ikusi
+        ArrayList<String> lista = idazkari.gaixoDatuakIkusi(123456789);
+        assertFalse(lista.isEmpty());
+        assertEquals(lista.get(0), ""); //hemen gaixo baten datuak sartu beharko dira
+        assertEquals(lista.get(1), "");
+        assertEquals(lista.get(2), "");
+        assertEquals(lista.get(3), "");
+        assertEquals(lista.get(4), "");
+        assertEquals(lista.get(5), "");
         //gaixoa datubasean ez dagoenean
+        lista = idazkari.gaixoDatuakIkusi(000000000);
+        assertTrue(lista.isEmpty());
+    }
+    
+    @Test
+    public void testSendagileaAldatu(){
+        //dagoen sendagile bati egun bateko txanda aldatu
         fail("Not yet implemented");
     }
 }

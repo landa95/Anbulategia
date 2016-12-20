@@ -138,4 +138,8 @@ class Historial {
         this.gaisoa = gaisoa;
     }
     
+    public boolean equals(Historial his) {
+        return (his.gGSZ == this.gGSZ);
+    }
+    
 }

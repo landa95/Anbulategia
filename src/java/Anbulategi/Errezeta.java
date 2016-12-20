@@ -58,9 +58,7 @@ public class Errezeta {
     }
 
     public boolean equals(Errezeta pEr) {
-      if (this.getBotika().equals(pEr.getBotika()) && this.getData().equals(pEr.getData())) return true;
-      
-      else return false;
+        return (this.getBotika().equals(pEr.getBotika()) && this.getData().equals(pEr.getData()));
     }
 
     /**

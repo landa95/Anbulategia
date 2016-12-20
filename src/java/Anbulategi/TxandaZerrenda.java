@@ -29,4 +29,18 @@ class TxandaZerrenda {
     Iterator<Txanda> getIterator() {
         return lista.iterator();
     }
+
+    int size() {
+        return lista.size();
+    }
+    
+    @Override
+    public String toString() { 
+        String text = "";
+        Iterator<Txanda> itr = getIterator();
+        while (itr.hasNext()){
+            text = itr.next().toString()+"\r\n";
+        }
+        return text;
+    } 
 }

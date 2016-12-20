@@ -110,8 +110,12 @@ public class Idazkaria {
         DB.getNDB().eguneratuGaixoa(pGaixoGSZ, "Izena", pIzBerria);
     }
     
-    public void gaixoAbizenakAldatu(int pGaixoGSZ, String pAbBerria){
-        DB.getNDB().eguneratuGaixoa(pGaixoGSZ, "Abizenak", pAbBerria);
+    public void gaixoAbizena1Aldatu(int pGaixoGSZ, String pAbBerria){
+        DB.getNDB().eguneratuGaixoa(pGaixoGSZ, "Abizena1", pAbBerria);
+    }
+    
+    public void gaixoAbizena2Aldatu(int pGaixoGSZ, String pAbBerria){
+        DB.getNDB().eguneratuGaixoa(pGaixoGSZ, "Abizena2", pAbBerria);
     }
     
     public void gaixoTelfAldatu(int pGaixoGSZ, int pTelBerria){

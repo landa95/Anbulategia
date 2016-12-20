@@ -61,10 +61,17 @@ public class DB {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   void eguneratuGaixoa(int pGaixoGSZ, String aldaketa, String pIzBerria) {
-              
+   void eguneratuGaixoa(int pGaixoGSZ, String aldaketa, String pBerria) {
        Gaixoa gaixo = gaixoaManager.getGaixoaByGSZ(pGaixoGSZ);
-       gaixo.setIzena(pIzBerria);
+       if (aldaketa.equals("izena"))
+           gaixo.setIzena(pBerria);
+       else if (aldaketa.equals("abizena1"))
+           gaixo.setAbizena1(pBerria);
+       else if (aldaketa.equals("abizena2"))
+           gaixo.setAbizena2(pBerria);
+       else if (aldaketa.equals("helbidea"))
+           gaixo.setBizilekua(pBerria);
+       
        gaixoaManager.edit(gaixo);
     }
 
