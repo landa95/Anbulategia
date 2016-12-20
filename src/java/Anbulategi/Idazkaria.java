@@ -1,11 +1,14 @@
 package Anbulategi;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -55,11 +58,20 @@ public class Idazkaria {
         else return null;
     }
     
-    public void txandakEsleitu(Date pOrdua, int pGSZ){
-        if (pOrdua.after(new Date())){
+    public void txandakEsleitu(Date pEguna, String pOrdua, int pGSZ){
+        SimpleDateFormat aux = new SimpleDateFormat("yyyy-MM-dd");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String gaur = aux.format(pEguna);
+	String stringDataEguna = gaur+" "+pOrdua;
+        try {
+            Date dataEguna = sdf.parse(stringDataEguna);
+            if (dataEguna.after(new Date())){
             int medikuID = DB.getNDB().gaixoarenMedikua(pGSZ);
-            Txanda txanda = new Txanda(pOrdua, medikuID, pGSZ);
+            Txanda txanda = new Txanda(dataEguna, medikuID, pGSZ);
             DB.getNDB().txandaGorde(txanda);
+        }
+        } catch (ParseException ex) {
+            Logger.getLogger(Idazkaria.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

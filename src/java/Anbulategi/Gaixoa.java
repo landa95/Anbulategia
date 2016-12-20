@@ -148,9 +148,9 @@ public class Gaixoa {
         return idaz.orduLibreakErakutsi(pData, GSZ);
     }
     
-     public void kontsultaEskatu(Date pData){
+     public void kontsultaEskatu(Date pData, String pOrdua){
         Idazkaria idaz = new Idazkaria();
-        idaz.txandakEsleitu(pData, GSZ);
+        idaz.txandakEsleitu(pData, pOrdua, GSZ);
     }
     
     public TxandaZerrenda gaixoarenTxandak(){

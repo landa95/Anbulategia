@@ -93,8 +93,8 @@ public class IdazkariaTest {
     
     @Test
     public void testTxandakEsleitu(){
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm yyyy-MM-dd ");
-        String dateInString = "08:00 2016-12-23";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd ");
+        String dateInString = "2016-12-23";
         Date data = null;
         try {
             data = sdf.parse(dateInString);
@@ -103,17 +103,16 @@ public class IdazkariaTest {
         }
         //ordu posibleekin txandak esleitzea
         assertTrue(ndb.orduaLibreDago(data,1234567)); //medikuaren id-a da
-        idazkari.txandakEsleitu(data,987654321);
+        idazkari.txandakEsleitu(data, "08:00", 987654321);
         assertFalse(ndb.orduaLibreDago(data,1234567)); //medikuaren id-a da
         //ordu ezinezkoekin orduak esleitzea
-        sdf = new SimpleDateFormat("HH:mm yyyy-MM-dd ");
-        dateInString = "08:00 2016-11-20"; //pasata dagoen data
+        dateInString = "2016-11-20"; //pasata dagoen data
         try {
             data = sdf.parse(dateInString);
         } catch (ParseException ex) {
             Logger.getLogger(IdazkariaTest.class.getName()).log(Level.SEVERE, null, ex);
         }
-        idazkari.txandakEsleitu(data,987654321);
+        idazkari.txandakEsleitu(data, "08:00", 987654321);
         //datubasean ez dagoen gaixoak ordua esleiztea
         //datubasean ez dagoen medikua esleitzea
         fail("Not yet implemented");
