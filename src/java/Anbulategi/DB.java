@@ -25,6 +25,7 @@ public class DB {
     private static SendagileaDAOHibernate sendagileaManager = new SendagileaDAOHibernate();
     //private final TxandaDAOHibernate txandaManager = new TxandaDAOHibernate();
     private static bajaTxostenaDAOHibernate bajaTxostenaManager = new bajaTxostenaDAOHibernate();
+    private static IdazkariaDAOHibernate idazkariManager = new IdazkariaDAOHibernate();
     //Constructor
     private DB(){}
     
@@ -147,5 +148,17 @@ public class DB {
     
     Sendagilea bilatuMedikua(int pMedikuNAN) {
         return sendagileaManager.getSendagileaByNAN(pMedikuNAN);
+    }
+    
+    public boolean checkGaixoa(int GSZ, String pasahitza){
+        return gaixoaManager.checkGaixoa(GSZ, pasahitza);
+    }
+    
+    public boolean checkSendagile(int NAN, String pasahitza){
+        return sendagileaManager.checkSendagile(NAN, pasahitza);
+    }
+    
+     public boolean checkIdazkari(int Id, String pasahitza){
+        return idazkariManager.checkIdazkari(Id, pasahitza);
     }
 }
