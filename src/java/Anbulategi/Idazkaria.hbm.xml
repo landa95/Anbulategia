@@ -5,5 +5,8 @@
 
 <hibernate-mapping>
 <class name="Anbulategi.Idazkaria" table="idazkaria"/>
-
+    <id name = "id" type = "int" column = "Pashaitza" >
+        <generator class = "native"/>
+    </id>
+    <property name = "pasahitza" type = "String" column = "Pasahitza"/>
 </hibernate-mapping>

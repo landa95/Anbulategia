@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,7 +22,16 @@ import java.util.Iterator;
  *
  * @author Oier
  */
+@Entity
+@Table(name="idazkaria")
 public class Idazkaria {
+    @Id
+    @GeneratedValue
+    @Column(name = "Id")
+    private int id;
+    @Column(name = "Pasahitza")
+    private String pasahitza;
+    
     //Constructor
     public Idazkaria(){};
     
@@ -123,6 +137,34 @@ public class Idazkaria {
                 }
             }
         }
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the pasahitza
+     */
+    public String getPasahitza() {
+        return pasahitza;
+    }
+
+    /**
+     * @param pasahitza the pasahitza to set
+     */
+    public void setPasahitza(String pasahitza) {
+        this.pasahitza = pasahitza;
     }
 
 }

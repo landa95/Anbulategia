@@ -10,5 +10,8 @@ package Anbulategi;
  * @author INAKI
  */
 public interface IdazkariaDAO {
-    
+    public void save(Idazkaria idazkari);
+    public void delete(Idazkaria idazkari);
+    public void edit(Idazkaria idazkari);
+    public boolean checkIdazkari(int id, String password);
 }

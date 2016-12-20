@@ -20,4 +20,5 @@ public interface GaixoaDAO {
     public List<Errezeta> lortuErrezetak(int GSZ);
     public List<bajaTxostena> lortuBajaTxostenak(int GSZ);
     public boolean gaixoaDago(Gaixoa ga);
+    public boolean checkGaixoa(int GSZ, String password);
 }

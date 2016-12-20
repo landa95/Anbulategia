@@ -11,6 +11,8 @@
     </joined-subclass>
      <property name ="izena" type ="String"column ="Izena" />
      <property name ="abizena" type ="String"column ="Abizena" />
+     
+     <property name = "pasahitza" type = "String" column = "Pasahitza"/>
     <set name="gaixoak" table="gaisoa" inverse="true" lazy="true" fetch="select">
         <key>
             <column name="SNan" not-null="true" />

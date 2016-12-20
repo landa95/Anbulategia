@@ -14,4 +14,5 @@ public interface SendagileaDAO {
     public void delete(Sendagilea sendagile);
     public void edit(Sendagilea sendagile);
     public Sendagilea getSendagileaByNAN(int SNan);
+     public boolean checkSendagile(int GSZ, String password);
 }

@@ -15,6 +15,7 @@
     <property name ="bizilekua" type ="String" column ="Herria" />
     <property name ="adina" type ="int" column ="Adina" />
     <property name ="sendagilea type ="String" column ="Abizena2" />
+    <property name = "pasahitza" type = "String" column = "Pasahitza"/>
     <many-to-one name = "medikua"class = "Sendagilea" fetch = "select">
         <column name = "SNan" not-null = "true"/>
     </many-to-one>
@@ -29,7 +30,5 @@
             <column name="DokumentuId" not-null="true" />
         </key>        
         <one-to-many class="Anbulategi.bajaTxostena" />
-    </set>
-    <!one to one erlazioa gaixoa & historiala-->
-    
+    </set>  
 </hibernate-mapping>

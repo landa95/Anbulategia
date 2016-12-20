@@ -29,6 +29,9 @@ public class Gaixoa {
     private int telefonoa;
     @Column(name="Herria")
     private String bizilekua;
+    @Column(name ="Pasahitza")
+    private String pasahitza;
+    
    
     @Id
    @GeneratedValue

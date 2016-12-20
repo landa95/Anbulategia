@@ -37,6 +37,8 @@ public class Sendagilea {
     private String izena;
     @Column(name ="Abizena")
     private String abizena;
+    @Column(name ="Pasahitza")
+    private String pasahitza;
     @OneToMany(cascade={CascadeType.ALL})
     @JoinColumn(name = "GSZ")
     @IndexColumn(name ="GSZ")
@@ -151,6 +153,20 @@ public class Sendagilea {
      */
     public void setAbizena(String abizena) {
         this.abizena = abizena;
+    }
+
+    /**
+     * @return the pasahitza
+     */
+    public String getPasahitza() {
+        return pasahitza;
+    }
+
+    /**
+     * @param pasahitza the pasahitza to set
+     */
+    public void setPasahitza(String pasahitza) {
+        this.pasahitza = pasahitza;
     }
  
 }
