@@ -168,4 +168,12 @@ public class DB {
      public boolean checkIdazkari(int Id, String pasahitza){
         return idazkariManager.checkIdazkari(Id, pasahitza);
     }
+
+    void bajaEman(int pGSZ, bajaTxostena txostena) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    boolean gaixoaBajaDu(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

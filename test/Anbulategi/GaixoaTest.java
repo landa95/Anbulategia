@@ -5,6 +5,7 @@
  */
 package Anbulategi;
 
+import java.util.Date;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,6 +18,9 @@ import static org.junit.Assert.*;
  * @author Oier
  */
 public class GaixoaTest {
+    
+    private DB ndb = DB.getNDB();
+    private Gaixoa ga = new Gaixoa("Oier", "Beaskoetxea", "Aldazabal", 20, 624631987, "Bilbo", 99999999); //jadanik datubasean egongo da
     
     public GaixoaTest() {
     }
@@ -45,11 +49,22 @@ public class GaixoaTest {
     
     @Test
     public void testKontsulaEskatu(){
-        fail("Not yet implemented");
+        TxandaZerrenda tz = ga.gaixoarenTxandak();
+        assertTrue(tz.size() == 0); // ez dauka txandarik
+        ga.kontsultaEskatu(new Date(), "10:00");
+        tz = ga.gaixoarenTxandak();
+        assertTrue(tz.size() == 1);
+        ga.kontsultaEskatu(new Date(), "11:00");
+        tz = ga.gaixoarenTxandak();
+        assertTrue(tz.size() == 2);
     }
     
     @Test
-    public void testGaixoarenTxandak(){
-        fail("Not yet implemented");
+    public void testGaixoarenTxandak(){ // bi probak oso loturik daude
+        TxandaZerrenda tz = ga.gaixoarenTxandak();
+        assertTrue(tz.size() == 0); 
+        ga.kontsultaEskatu(new Date(), "10:00");
+        tz = ga.gaixoarenTxandak();
+        assertTrue(tz.size() == 1);
     }
 }

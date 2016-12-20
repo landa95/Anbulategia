@@ -5,6 +5,7 @@
  */
 package Anbulategi;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -130,4 +131,11 @@ class bajaTxostena {
     public void setGSZ(Gaixoa gaixoa) {
         this.setGaixoa(gaixoa);
     }
+    
+    @Override
+    public String toString() { 
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+       String text = "Baja: "+sdf.format(bajaData)+"\r\nArrazoia: "+bajaArrazoia+"\r\nAlta: "+sdf.format(altaData)+"\r\nArrazoia: "+altaArrazoia;
+       return text;
+    } 
 }

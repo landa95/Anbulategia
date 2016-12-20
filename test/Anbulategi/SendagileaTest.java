@@ -77,7 +77,14 @@ public class SendagileaTest {
     
     @Test
     public void testBajaEman(){
-        fail("Not yet implemented");
+        Idazkaria idaz = new Idazkaria();
+        idaz.historialBerria("Jon", "Nuñez", "Perez", 20, 654321987, "Bilbo", 456789123);
+        Gaixoa ga = new Gaixoa("Jon", "Nuñez", "Perez", 20, 654321987, "Bilbo", 456789123);
+        assertFalse(ndb.gaixoaBajaDu(456789123)); //sartu berria dago
+        sendagile.bajaEman(456789123, 7);
+        assertTrue(ndb.gaixoaBajaDu(456789123)); //orain badauka baja
+        sendagile.bajaEman(456789123, 3); //beste baja berri bat gaxo berdinari
+        System.out.println(ga.getBajaDokumentuak().toString());
     }
     
     @Test

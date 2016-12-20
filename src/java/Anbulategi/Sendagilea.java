@@ -71,6 +71,7 @@ public class Sendagilea {
         cal.add(Calendar.DATE, pBajaEgunak);
         Date dAlta = cal.getTime();
         bajaTxostena txostena = new bajaTxostena(dBaja, dAlta);
+        DB.getNDB().bajaEman(pGSZ, txostena);
     }
     
     public Errezeta errezetaSortu(String pBotika, int pIraupena, String pAginduak,Gaixoa gaixoa){
