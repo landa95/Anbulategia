@@ -89,8 +89,12 @@ public class SendagileaTest {
     
     @Test
     public void testErrezetaSortu(){
-        Gaixoa ga = new Gaixoa("Jon", "Nuñez", "Perez", 20, 654321987, "Bilbo", 456789123);
-        Errezeta er = sendagile.errezetaSortu("Botika", 3, "Jan eta gero hartzekoa", ga);
+        Gaixoa ga = ndb.getGaixoa(456789123);
+        Errezeta er = new Errezeta("Botika", 3, ga);
+        assertFalse(ga.baduErrezeta(er));
+        er = sendagile.errezetaSortu("Botika", 3, "Jan eta gero hartzekoa", ga);
+        ga = ndb.getGaixoa(456789123);
+        assertTrue(ga.baduErrezeta(er));
         fail("Not yet implemented");
     }
     

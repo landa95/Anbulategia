@@ -5,6 +5,7 @@
  */
 package Anbulategi;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -57,8 +58,8 @@ public class Errezeta {
         aginduak = pAginduak;
     }
 
-    public boolean equals(Errezeta pEr) {
-        return (this.getBotika().equals(pEr.getBotika()) && this.getData().equals(pEr.getData()));
+    public boolean equals(Errezeta pEr){
+       return (pEr.botika.equals(this.botika) && pEr.iraupena==this.iraupena && pEr.data.equals(this.data));
     }
 
     /**
@@ -144,5 +145,4 @@ public class Errezeta {
     public void setGaixoa(Gaixoa gaixoa) {
         this.gaixoa = gaixoa;
     }
-    
 }

@@ -77,6 +77,7 @@ public class Sendagilea {
     public Errezeta errezetaSortu(String pBotika, int pIraupena, String pAginduak,Gaixoa gaixoa){
         Errezeta errezeta= new Errezeta(pBotika, pIraupena, gaixoa);
         errezeta.setAginduak(pAginduak);
+        gaixoa.gehituErrezeta(errezeta);
         DB.getNDB().errezetaGehitu(errezeta);
         return errezeta; //gaisoak behar badu errezeta izan dezan
     }

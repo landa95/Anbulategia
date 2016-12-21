@@ -148,7 +148,7 @@ public class Gaixoa {
         return idaz.orduLibreakErakutsi(pData, GSZ);
     }
     
-     public void kontsultaEskatu(Date pData, String pOrdua){
+    public void kontsultaEskatu(Date pData, String pOrdua){
         Idazkaria idaz = new Idazkaria();
         idaz.txandakEsleitu(pData, pOrdua, GSZ);
     }
@@ -229,5 +229,12 @@ public class Gaixoa {
     public Set getBajaDokumentuak() {
         return bajaDokumentuak;
     }
+
+    void gehituErrezeta(Errezeta pErrezeta) {
+        errezetak.add(pErrezeta);
+    }
     
+    public boolean baduErrezeta(Errezeta pEr){
+        return errezetak.contains(pEr);
+    }
 }
