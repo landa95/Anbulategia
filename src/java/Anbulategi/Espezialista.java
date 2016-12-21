@@ -24,8 +24,9 @@ public class Espezialista extends Sendagilea{
       //Constructor
     public Espezialista(){}
     
-    public Espezialista(int pNan, String pIz, String pAb) {
+    public Espezialista(int pNan, String pIz, String pAb,String pEsp) {
         super(pNan, pIz, pAb);
+        espezialitatea = pEsp;
     }
     
     //Methods

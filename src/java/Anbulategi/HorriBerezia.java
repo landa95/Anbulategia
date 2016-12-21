@@ -35,4 +35,8 @@ class HorriBerezia {
         return espezialitatea.equals(pEsp);
     }
     
+    public String getHistoria(){
+        return historia;
+    }
+    
 }

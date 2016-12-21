@@ -119,12 +119,18 @@ public class IdazkariaTest {
     
     @Test
     public void testBajaPaperaBerritu(){
-        //baja papera berritu aste bat
-        //aste bat baino gutxaigo
+        Sendagilea sendagile = new Sendagilea();
         //ez berritu
-        //bajarik ez duen gaixoa
-        //datubasean ez dagoen gaixoa
-        fail("Not yet implemented");
+        assertFalse(ndb.gaixoaBajaDu(456789123));
+        sendagile.bajaEman(456789123, 0);
+        assertTrue(ndb.gaixoaBajaDu(456789123));
+        idazkari.bajaPaperaBerritu(456789123);
+        assertFalse(ndb.gaixoaBajaDu(456789123));
+        //baja papera berritu baina bukatu gabe
+        sendagile.bajaEman(456789123, 10);
+        assertTrue(ndb.gaixoaBajaDu(123456789));
+        idazkari.bajaPaperaBerritu(123456789); 
+        assertTrue(ndb.gaixoaBajaDu(123456789));
     }
     
     @Test
@@ -145,7 +151,19 @@ public class IdazkariaTest {
     
     @Test
     public void testSendagileaAldatu(){
+        Date data =  new Date();
+        TxandaZerrenda tzga = ndb.gaixoarenTxandak(data, 123456789);
+        System.out.println(tzga.toString()); //txandak sartu aurretik ikusteko
+        idazkari.txandakEsleitu(data, "08:00", 123456789);
+        idazkari.txandakEsleitu(data, "08:30", 123456789);
+        idazkari.txandakEsleitu(data, "09:00", 123456789);
+        idazkari.txandakEsleitu(data, "09:30", 123456789);
         //dagoen sendagile bati egun bateko txanda aldatu
+        idazkari.sendagileaAldatu(0, data);
+        tzga = ndb.gaixoarenTxandak(data, 123456789);
+        TxandaZerrenda tzme = ndb.medikuarenTxanda(ndb.gaixoarenMedikua(123456789), data);
+        assertTrue(tzme.size() == 0); //medikua txanda gabe dago
+        System.out.println(tzga.toString()); //hemen ikusiko dira lau txandak mediku desberdinarekin edo egun desberdinean
         fail("Not yet implemented");
     }
 }

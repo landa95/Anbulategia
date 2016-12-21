@@ -18,6 +18,10 @@ import static org.junit.Assert.*;
  */
 public class EspezialistaTest {
     
+    private DB ndb = DB.getNDB();
+    private Espezialista sendagile1 = new Espezialista(789632145, "Juan", "Iglesias", "Kardiologia");
+    private Espezialista sendagile2 = new Espezialista(789632141, "Alazne", "Iglesias", "Traumatologia");
+    
     public EspezialistaTest() {
     }
     
@@ -45,6 +49,25 @@ public class EspezialistaTest {
     
     @Test
     public void testHistorialBerezia(){
-        fail("Not yet implemented");
+        //daturen bat sartuz
+        Historial his = sendagile1.historialaKontsultatu(987654321); //gaixoa datubasean egongo da
+        HorriBereziList hb = his.gethBereziak();
+        HorriBerezia kardio = hb.bilatuEspezialitatekoHorria("Kardiologia");
+        sendagile1.historialBerezia(987654321, "proba 1");
+        hb = his.gethBereziak();
+        if (kardio != null)
+            assertNotEquals(kardio.getHistoria(), hb.bilatuEspezialitatekoHorria("Kardiologia").getHistoria());
+        else 
+            assertNotEquals(hb.bilatuEspezialitatekoHorria("Kardiologia"), null); //sortu egin dela adierazteko
+        //gehiketa hutsa
+       his = sendagile2.historialaKontsultatu(987654321);
+       hb = his.gethBereziak();
+       HorriBerezia trauma = hb.bilatuEspezialitatekoHorria("Traumatologia");
+       sendagile2.historialBerezia(987654321, "");
+        hb = his.gethBereziak();
+        if (trauma != null)
+            assertEquals(trauma.getHistoria(), hb.bilatuEspezialitatekoHorria("Traumatologia").getHistoria());
+        else 
+            assertNotEquals(hb.bilatuEspezialitatekoHorria("Traumatologia"), null); //sortu egin dela adierazteko
     }
 }

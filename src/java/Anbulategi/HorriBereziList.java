@@ -34,7 +34,7 @@ class HorriBereziList {
         }
     }
 
-    private HorriBerezia bilatuEspezialitatekoHorria(String pEsp) {
+    public HorriBerezia bilatuEspezialitatekoHorria(String pEsp) { //probetarako beharrezkoa publikoa
         Iterator<HorriBerezia> itr= horriak.iterator();
         boolean aurkitua = false;
         HorriBerezia horri = null;
