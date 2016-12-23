@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <title>Login</title>
+        <style>
+            body{
+                margin: 25px;
+            }
+        </style>
+    </h:head>
+    <body>
+        <div align="center">
+           <h:form id="loginForm">
+                <p:panel header="Login Idazkaria" style="width: 500px;">
+                    <h:panelGrid id="grid" columns="2" >
+                        <p:outputLabel value="ID: "/>
+                        <p:inputText  id="id" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.id}" />
+                        
+                        <h:outputText value="Pasahitza: " />
+                        <p:password required="true" feedback="true" id="password" requiredMessage="Mesedez, sartu zure pasahitza" value="#{IdazkariaBEAN.passwordIdazkari}" />
+                        
+                       <h:outputText value=""/>
+                       <p:commandButton action="#{IdazkariaBEAN.login()}" value="Sartu" update="grid"/>
+                                            
+                        <h:outputText value=""/>
+                        <p:message for="loginForm"/>
+                            
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+        </div>
+    </body>
+</html>

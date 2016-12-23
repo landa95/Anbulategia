@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/registration.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>Erizaina</from-outcome>
+            <to-view-id>/hasieraErizaina.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Idazkaria</from-outcome>
+            <to-view-id>/hasieraIdazkaria.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Sendagilea</from-outcome>
+            <to-view-id>/hasieraSendagilea.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/registration.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+</faces-config>

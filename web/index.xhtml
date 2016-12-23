@@ -1,12 +1,74 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <style>
+        
+        body {
+            background-image: url(back.jpg);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+       img{
+        margin-right: 150px;
+	} 
+        
+        h1{
+          color: black;
+          font-family: 'Poiret One';
+          font-size: 250%;  
+        }
+    
+        .button {
+            margin-left: 175px;
+            border: 2px solid black;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ccccff;
+            color: black;
+	}
+
+    </style>
     <h:head>
-        <title>Facelet Title</title>
+       
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poiret+One" rel="stylesheet"></link>
+	
+        <title>Anbulategia</title>
+        <h1>
+            <p align="center">
+                ANBULATEGIA
+            </p>
+        </h1>    
+        <br/>
+        
     </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+    <body>
+
+        <fieldset>
+        <div>
+            <div><img src="bezeroa.png" width="80" height="80" style="margin-left: 200px;"/>
+                <form action="bezero/bezeroLogin.xhtml"><button class ="button" name="bezeroa" alt="Submit">Bezeroa</button></form>
+            </div>
+           <br/>
+           <br/>
+            <div><img src="idazkaria.png" width="80" height="80" style="margin-left: 200px;"/>
+                <form action="idazkaria/idazkariLogin.xhtml"><button class ="button" name="bezeroa">Idazkaria</button></form>
+            </div>
+            <br/>
+            <br/>
+            <div><img src="sendagilea.png" width="80" height="80" style="margin-left: 200px;"/>
+                <form action="sendagilea/sendagileLogin.xhtml"><button class ="button" name="bezeroa">Sendagilea</button></form>
+            </div>
+        </div>
+      </fieldset>
+
+    </body>
 </html>
 

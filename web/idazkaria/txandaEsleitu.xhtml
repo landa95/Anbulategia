@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:pm="http://primefaces.org/mobile">
+    
+    <h:head>
+        <title>Txanda Esleitu</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    
+    <h:body>
+        
+            <p:dock position="top" itemWidth="80">
+                    <p:menuitem value="Home" icon="home.png" url="idazkariLayout.xhtml"/>
+                    <p:menuitem value="Historiala sortu" icon="historial_berria.png" url="historialBerria.xhtml"/>
+                    <p:menuitem value="Txanda esleitu" icon="txanda.png" url="txandaEsleitu.xhtml"/>
+                    <p:menuitem value="Gaixoaren datuak ikusi/eguneratu" icon="gaixo_info.png" url="gaixoDatuak.xhtml"/>
+        </p:dock>
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+         
+        <h1 align="center">TXANDA ESLEITU</h1>
+            <br/>
+            <p:separator />
+            <br/>
+            
+        <h:form>
+            
+            <div align="center">
+            
+                    <p:outputLabel value="Aukeratu gaixoa: " />
+                    <p:selectOneMenu id="gaixoaukera">
+                      <f:selectItem itemLabel="Aukeratu bat" itemValue="" />
+                      <f:selectItems value="#{IdazkariaBEAN.gaixolista}" itemValue="#{IdazkariaBEAN.gaixo}"/>
+                    </p:selectOneMenu>
+                    
+                    <br/>
+                    <br/>
+
+                    <h:panelGrid columns="2" cellpadding="5">
+                      <p:outputLabel value="Aukeratu eguna:" />
+                      <p:calendar id="popup" value="#{IdazkariaBEAN.date}" />
+                    </h:panelGrid>                 
+
+                    <br/>
+                    <br/>
+                    <p:commandButton value="Kargatu orduak" action="#{IdazkariaBEAN.kargatuOrduak()}"/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p:outputLabel value="Aukeratu ordua: " />
+                    <p:selectOneMenu id="ordua">
+                    <f:selectItem itemLabel="Aukeratu bat" itemValue="" />
+                    <f:selectItems value="#{IdazkariaBEAN.orduak}" itemValue="#{IdazkariaBEAN.ordua}" itemLabel="#{IdazkariaBEAN.ordua}"/>
+                    </p:selectOneMenu>
+                            
+                    <br/>
+                    <br/>
+                    <br/>
+
+                    <p:commandButton value="Bidali kontsulta" action="#{IdazkariaBEAN.txandaEsleitu()}"/>
+                    
+            </div>   
+            
+        </h:form>
+  
+        
+            
+    </h:body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+
+    <h:head>
+         <title>Historiala Editatu</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        
+        <p:dock position="top" itemWidth="80">
+                    <p:menuitem value="Home" icon="home.png" url="sendagileaLayout.xhtml"/>
+                    <p:menuitem value="Historiala" icon="historial_berria.png" url="historialaEditatu.xhtml"/>
+                    <p:menuitem value="Baja txostena" icon="baja_txostena.png" url="bajaTxostena.xhtml"/>
+                    <p:menuitem value="Errezeta txostena" icon="errezeta_txostena.png" url="errezetaTxostena.xhtml"/>
+                    <p:menuitem value="Espezialista esleitu" icon="espezialistaesleitu.png" url="espezialistaEsleitu.xhtml"/>
+                    
+        </p:dock>
+            
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/> 
+        <br/>
+        <br/> 
+         
+        <h1 align="center">HISTORIALA EDITATU</h1>
+            <br/>
+            <p:separator />
+            <br/>
+            
+        <h:form>
+            <div align="center">
+              <p:outputLabel value="Aukeratu gaixoa: " />
+                    <p:selectOneMenu id="gaixoaukera">
+                      <f:selectItem itemLabel="Aukeratu bat" itemValue="" />
+                      <f:selectItems value="#{SendagileaBEAN.gaixolista}" itemValue="#{SendagileaBEAN.GSZ}"/>
+                    </p:selectOneMenu>
+                    
+               <br/>
+                    <br/>
+                    <p:commandButton value="Kargatu datuak" action="#{SendagileaBEAN.kargatuDatuak()}"/>
+                    <br/>
+                    <br/>
+                <br/>
+                <br/>
+                
+                 <p:fieldset legend="GAIXOAREN HISTORIALA" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                       
+                            <h:outputText value="GSZ: " style="font-weight: bold" />
+                            <h:outputText value="#{SendagileaBEAN.h.getgGSZ}" />
+                            
+                            <h:outputText value="Historial Zenbakia: " style="font-weight: bold" />
+                            <h:outputText value="#{SendagileaBEAN.h.gethZenbakia}" />
+
+                            <h:outputText value="Historiala: " style="font-weight: bold" />
+                            <p:inputText value="#{SendagileaBEAN.h.historia}" />
+
+                    </h:panelGrid>
+                     
+                    <br/>
+                    <p:commandButton value="Aldaketak gorde" action="#{SendagileaBEAN.gordeHistoriala()}"/>
+                    <br/>
+                    
+                </p:fieldset>
+             </div>
+        </h:form>
+    </h:body>
+    
+</html>

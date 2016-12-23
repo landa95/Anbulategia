@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Historiala</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    
+    <h:body>
+        
+          <p:dock position="top" itemWidth="80">
+                    <p:menuitem value="Home" icon="home.png" url="bezeroLayout.xhtml"/>
+                    <p:menuitem value="Kontsulta eskatu" icon="kontsulta.png" url="kontsultaEskaera.xhtml"/>
+                    <p:menuitem value="Datu pertsonalak" icon="gaixo_info.png" url="datuPertsonalak.xhtml"/>
+                    <p:menuitem value="Nire historiala" icon="historiala.png" url="historiala.xhtml"/>
+            </p:dock>
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+         
+        <h1 align="center">HISTORIALA</h1>
+            <br/>
+            <p:separator />
+            <br/>
+            
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+ 
+                 <p:fieldset legend="HISTORIALA" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                            <h:outputText value="GSZ zenbakia: " style="font-weight: bold" />
+                            <h:outputText value="#{GaixoaBEAN.gaixoa.historiala.getgGSZ}" />
+
+                           <p:outputLabel value="Historial bereziak " />
+                            <p:selectOneMenu id="ordua">
+                                <f:selectItem itemLabel="" itemValue="" />
+                                <f:selectItems value="#{GaixoaBEAN.gaixoa.historiala.gethBereziak}" />
+                            </p:selectOneMenu>
+
+                            <h:outputText value="Historual Zenbakia" style="font-weight: bold" />
+                            <h:outputText value="#{GaixoaBEAN.gaixoa.historiala.gethZenbakia}" />
+
+                            <h:outputText value="Adina:" style="font-weight: bold" />
+                            <h:outputText value="#{GaixoaBEAN.gaixoa.historiala.historia}" />
+                    </h:panelGrid>
+                </p:fieldset>
+            
+        </h:form>
+            
+   
+    </h:body>
+</html>

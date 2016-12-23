@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/mobile">
+
+    <h:head>
+         <title>Espezialista esleitu</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        
+         <p:dock position="top" itemWidth="80">
+                    <p:menuitem value="Home" icon="home.png" url="sendagileaLayout.xhtml"/>
+                    <p:menuitem value="Historiala" icon="historial_berria.png" url="historialaEditatu.xhtml"/>
+                    <p:menuitem value="Baja txostena" icon="baja_txostena.png" url="bajaTxostena.xhtml"/>
+                    <p:menuitem value="Errezeta txostena" icon="errezeta_txostena.png" url="errezetaTxostena.xhtml"/>
+                    <p:menuitem value="Espezialista esleitu" icon="espezialistaesleitu.png" url="espezialistaEsleitu.xhtml"/>
+                    
+        </p:dock>
+            
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/> 
+        <br/>
+        <br/> 
+         
+        <h1 align="center">ESPEZIALISTA ESLEITU</h1>
+            <br/>
+            <p:separator />
+            <br/>
+            
+        <h:form>
+            <div align="center">
+                
+                
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel value="Aukeratu eguna:" />
+                    <p:calendar id="data4" value="#{SendagileaBEAN.date4}" />
+                </h:panelGrid>  
+                
+                <h:outputText value="Espezialitatea: " style="font-weight: bold" />
+                <p:inputText value="#{SendagileaBEAN.espezialitatea}" />
+              
+                <br/>
+                 <br/>
+                    <p:commandButton value="Bilatu espezialistak" action="#{SendagileaBEAN.bilatuEspezialistak()}"/>
+                <br/>
+                 <br/>   
+                
+                <p:outputLabel value="Aukeratu espezialista: " />
+                    <p:selectOneMenu id="espezialistaaukera">
+                      <f:selectItem itemLabel="Aukeratu bat" itemValue="" />
+                      <f:selectItems value="#{SendagileaBEAN.espezialistalista}" itemValue="#{SendagileaBEAN.espezialista}"/>
+                    </p:selectOneMenu>
+                     
+                    <br/>
+                    <p:commandButton value="Esleitu" action="#{SendagileaBEAN.esleituEspezialista()}"/>
+                    <br/>
+             </div>
+        </h:form>
+    </h:body>
+    
+</html>

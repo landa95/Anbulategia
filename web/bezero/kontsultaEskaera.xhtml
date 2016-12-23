@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+        xmlns:pm="http://primefaces.org/mobile">
+	
+        <h:head>
+		<title>Kontsulta Eskaera</title>
+		<script name="jquery/jquery.js" library="primefaces"></script>
+	</h:head>
+	<h:body>
+      
+            <p:dock position="top" itemWidth="80">
+                    <p:menuitem value="Home" icon="home.png" url="bezeroLayout.xhtml"/>
+                    <p:menuitem value="Kontsulta eskatu" icon="kontsulta.png" url="kontsultaEskaera.xhtml"/>
+                    <p:menuitem value="Datu pertsonalak" icon="gaixo_info.png" url="datuPertsonalak.xhtml"/>
+                    <p:menuitem value="Nire historiala" icon="historiala.png" url="historiala.xhtml"/>
+            </p:dock>
+            
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            
+            <h1 align="center">KONTSULTA ESKERA</h1>
+            <p align="center">
+                
+            </p>
+            <br/>
+            <p:separator />
+            <br/>
+            
+	<div align = "center" style="height:500px">
+           
+            <h:form id="form">
+                
+                <p:growl id="msgs" showDetail="true" />
+                
+                    <h:panelGrid columns="2" cellpadding="5">
+                
+                        <p:outputLabel value="GSZ: #{GaixoaBEAN.GSZ}" />
+                        <br/>
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel value="Aukeratu eguna:" />
+                            <p:calendar id="popup" value="#{GaixoaBEAN.date2}" />
+                        </h:panelGrid>                 
+
+                        <br/>
+                        <br/>
+                    </h:panelGrid>
+
+                    <br/>
+                    <br/>
+                    
+                    <p:outputLabel value="Aukeratu ordua: " />
+                    <p:selectOneMenu id="ordua">
+                    <f:selectItem itemLabel="Aukeratu bat" itemValue="" />
+                    <f:selectItems value="#{GaixoaBEAN.orduak}" itemValue="#{GaixoaBEAN.ordua}" itemLabel="#{GaixoaBEAN.ordua}"/>
+                    </p:selectOneMenu>
+                            
+                    <br/>
+                    <br/>
+                    <br/>
+                    
+                    
+                   <p:commandButton value="Bidali kontsulta" action="#{GaixoaBEAN.kontsultaEskaera()}"/>
+
+                    
+                   <p:dialog modal="true" header="Ez dago ordu librerik egun horretan" widgetVar="dlg3" showEffect="shake" hideEffect="explode" height="100">
+                       <p:panelGrid id="display">
+                            <br/>
+                            <p:commandButton value="Beste egun bat aukeratu"  onclick="PF('dlg3').hide();" icon="ui-icon-close"/>
+                       </p:panelGrid>
+                   </p:dialog>
+
+            </h:form>
+            
+            </div>
+            
+            
+           
+    </h:body>
+</html>
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile">
+    
+    <h:head>
+        <title>Historial Berria</title>
+        <style>
+            .center{
+               margin-left: 500px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        
+         <p:dock position="top" itemWidth="80">
+                    <p:menuitem value="Home" icon="home.png" url="idazkariLayout.xhtml"/>
+                    <p:menuitem value="Historiala sortu" icon="historial_berria.png" url="historialBerria.xhtml"/>
+                    <p:menuitem value="Txanda esleitu" icon="txanda.png" url="txandaEsleitu.xhtml"/>
+                    <p:menuitem value="Gaixoaren datuak ikusi/eguneratu" icon="gaixo_info.png" url="gaixoDatuak.xhtml"/>
+        </p:dock>
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+         <h2 align="center">HISTORIAL BERRIA</h2>
+            <br/>
+            <p:separator />
+            <br/>
+
+        <div class="center">
+        
+        <h:form id="historialForm">
+            <p:outputLabel value="GSZ: "/><br/>
+            <p:inputText  id="GSZ" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.GSZ}" />
+            <br/>
+            <br/>
+            <p:outputLabel value="Izena: "/><br/>
+            <p:inputText  id="izena" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.gizena}" />
+            <br/>
+            <br/>
+            <p:outputLabel value="1. Abizena: "/><br/>
+            <p:inputText  id="abizena1" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.gabizena1}" />
+            <br/>
+            <br/>
+            <p:outputLabel value="2. Abizena: "/><br/>
+            <p:inputText  id="abizena2" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.gabizena2}" />
+            <br/>
+            <br/>
+            <p:outputLabel value="Jaiotze data (eguna - hilabetea - urtea): "/><br/>
+            <p:inputText  id="jdata" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.gjaiotzedata}" />
+            <br/>
+            <br/>
+            <p:outputLabel value="Telefonoa: "/><br/>
+            <p:inputText  id="gtelefonoa" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.gtelefonoa}" />
+            <br/>
+            <br/>
+            <p:outputLabel value="Helbidea: "/><br/>
+            <p:inputText  id="gbizilekua" required="true" requiredMessage="GSZ" value="#{IdazkariaBEAN.gbizilekua}" />
+            <br/>
+            <br/>
+            <p:commandButton action="#{IdazkariaBEAN.historialaSortu()}" value="Sortu"/>
+        </h:form>
+        </div>        
+    </h:body>
+</html>
